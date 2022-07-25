@@ -1,0 +1,16 @@
+<div class="container">
+    <div>
+        <mat-toolbar>
+            <a mat-button class="title" [routerLink]="['/']">TRAILS&FUN</a>
+            <div class="spacer"></div>
+                
+        <a mat-button class="item" color="primary" [routerLink]="['/trails']">TRAILS</a>
+        
+        <a mat-button class="item"  color="primary" [routerLink]="['/places']">PLACES</a>
+        <a mat-button class="item" color="primary" [routerLink]="['/events']">EVENTS</a>
+        <div class="spacer"></div>
+        <span class="username">{{username}}</span>
+        <a mat-button class="warn" (click)="logout()">Logout</a>
+    </mat-toolbar>
+    </div>
+</div>

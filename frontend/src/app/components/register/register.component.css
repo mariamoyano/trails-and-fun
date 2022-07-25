@@ -1,0 +1,29 @@
+.card {
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 20px;
+    /* background-color: #f2f2f2; */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.full-width {
+    width: 100%;
+}
+
+.register-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.login-fields {
+    margin: auto 0;
+}

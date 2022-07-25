@@ -1,0 +1,41 @@
+.mat-toolbar{
+    background-color: cornflowerblue;
+    
+  }
+
+  .title{
+    background-color: cornflowerblue;
+    color: greenyellow;
+    font-size: 1.1em;
+
+    margin-left: 0;
+  }
+  .item{
+     color: white;
+        font-size: 0.9em;
+  }
+  .item:hover{
+    color: cornflowerblue;
+    background-color: greenyellow;
+  }
+
+  .spacer{
+    flex: 1 1 auto;
+  }
+
+  .warn{
+    background-color: greenyellow;
+    color: cornflowerblue;
+    margin-left: 1%;
+  }
+   .warn:hover{
+      background-color: black;
+      color: greenyellow;
+    }
+    .username{
+      color: greenyellow;
+    }
+
+
+
+  

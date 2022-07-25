@@ -1,0 +1,34 @@
+<app-nav-bar></app-nav-bar>
+<p>trails-page works!</p>
+
+
+<h1>Fan Page</h1>
+<!-- Name, Age, Country, Team -->
+<div>
+    <input type="text" placeholder="Name..." (keyup.enter)="addFan()" [(ngModel)]="fanName">
+    <input type="number" placeholder="Age..." (keyup.enter)="addFan()" [(ngModel)]="fanAge">
+    <input type="text" placeholder="Country..." (keyup.enter)="addFan()" [(ngModel)]="fanCountry">
+    <select [(ngModel)]="fanTeam">
+        <option value="madrid">Real Madrid CF</option>
+        <option value="barcelona">Barcelona FC</option>
+    </select>
+    <button [disabled]="isDisabled()" (click)="addFan()">Add</button>
+</div>
+
+<!-- <div>xxx</div> block
+<span>yyy</span> inline-block -->
+
+
+<div class="container">
+    <div class="fan-list">
+        <h2>Madrid Fans</h2>
+        <button (click)="addRandomFan('madrid')">Add Random Fan</button>
+        <div *ngFor="let fan of madridFans; let i = index">
+            <!-- <img [src]="fan.profilePicture" [alt]="fan.name">
+            <p>{{fan.name}}</p>
+            <p>{{fan.age}}</p>
+            <p>{{fan.country}}</p>
+            <button (click)="removeFan(i, 'madrid')">Delete</button> -->
+            <app-fan-item [fanProp]="fan" [index]="i" (removeFanEvent)="removeFan($event, 'madrid')" ></app-fan-item>
+        </div>
+    </div>
