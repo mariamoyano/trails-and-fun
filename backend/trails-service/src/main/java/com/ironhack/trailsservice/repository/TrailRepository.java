@@ -1,6 +1,6 @@
 package com.ironhack.trailsservice.repository;
 
-import com.ironhack.trailsservice.model.Trails;
+import com.ironhack.trailsservice.model.Trail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,15 +8,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TrailsRepository extends JpaRepository<Trails, Long> {
+public interface TrailRepository extends JpaRepository<Trail, Long> {
 
-    List<Trails> findAll();
+    List<Trail> findAll();
 
-    Trails save(Trails trails);
+    Trail save(Trail trails);
 
-    Optional<Trails> findById(Long id);
+    Optional<Trail> findById(Long id);
 
-    void delete(Trails trails);
+    void delete(Trail trails);
 
 
     void save(String trail);

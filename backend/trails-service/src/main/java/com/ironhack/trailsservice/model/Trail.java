@@ -1,36 +1,47 @@
-package com.ironhack.outdoorplacesservice.model;
+package com.ironhack.trailsservice.model;
 
-
-import com.ironhack.outdoorplacesservice.enums.Category;
+import com.ironhack.trailsservice.enums.Difficulty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-public class OutdoorPlaces {
-
-    @Id
+public class Trail {
+   @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
+
+
+    @NotNull
+    private Long UserId;
+
+    @NotNull
     private String name;
+
+    @NotNull
     private String description;
     @Enumerated(EnumType.STRING)
-    private Category category;
+    private Difficulty difficulty;
+    private String length;
+
     private String address;
+    @NotNull
     private String region;
     private String latitude;
     private String longitude;
+
     private String image;
 
-    public OutdoorPlaces() {
+    public Trail() {
     }
 
-
-    public OutdoorPlaces(Long userId, String name, String description, Category category, String address, String region, String latitude, String longitude, String image) {
-        this.userId = userId;
+    public Trail(Long userId, String name, String description, Difficulty difficulty, String length, String address, String region, String latitude, String longitude, String image) {
+        UserId = userId;
         this.name = name;
         this.description = description;
-        this.category = category;
+        this.difficulty = difficulty;
+        this.length = length;
         this.address = address;
         this.region = region;
         this.latitude = latitude;
@@ -47,11 +58,11 @@ public class OutdoorPlaces {
     }
 
     public Long getUserId() {
-        return userId;
+        return UserId;
     }
 
     public void setUserId(Long userId) {
-        this.userId = userId;
+        UserId = userId;
     }
 
     public String getName() {
@@ -70,12 +81,20 @@ public class OutdoorPlaces {
         this.description = description;
     }
 
-    public Category getCategory() {
-        return category;
+    public Difficulty getDifficulty() {
+        return difficulty;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
     }
 
     public String getAddress() {
@@ -93,7 +112,6 @@ public class OutdoorPlaces {
     public void setRegion(String region) {
         this.region = region;
     }
-
 
     public String getLatitude() {
         return latitude;

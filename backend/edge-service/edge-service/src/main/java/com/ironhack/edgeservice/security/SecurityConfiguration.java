@@ -17,8 +17,8 @@ public class SecurityConfiguration {
         http.httpBasic();
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/trainers", "/trainers/**", "/hello-world", "/login").authenticated()
-                .antMatchers(HttpMethod.POST, "/trainers").authenticated()
+                .antMatchers(HttpMethod.GET, "/places", "/places/**", "/trails","/trails/**", "/login").authenticated()
+                .antMatchers(HttpMethod.POST, "/places","/trails").authenticated()
                 .anyRequest().permitAll();
         return http.build();
     }

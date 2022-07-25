@@ -8,8 +8,8 @@ export class Places {
         private _category: string,
         private _address: string,
         private _region: string,
-        private _latitude: string,
-        private _longitude: string,
+        private _latitude: number,
+        private _longitude: number,
         private _image: string
     ) {}
 
@@ -55,16 +55,16 @@ export class Places {
     public set region(value: string) {
         this._region = value;
     }
-    public get latitude(): string {
+    public get latitude(): number {
         return this._latitude;
     }
-    public set latitude(value: string) {
+    public set latitude(value: number) {
         this._latitude = value;
     }
-    public get longitude(): string {
+    public get longitude(): number {
         return this._longitude;
     }
-    public set longitude(value: string) {
+    public set longitude(value: number) {
         this._longitude = value;
     }
     public get image(): string {
