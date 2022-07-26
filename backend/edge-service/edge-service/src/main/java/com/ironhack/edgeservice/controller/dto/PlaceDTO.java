@@ -5,11 +5,12 @@ package com.ironhack.edgeservice.controller.dto;
 import com.ironhack.edgeservice.enums.Category;
 import com.ironhack.edgeservice.enums.Region;
 import com.ironhack.edgeservice.model.User;
+import lombok.Data;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-
+@Data
 public class PlaceDTO {
 
 
