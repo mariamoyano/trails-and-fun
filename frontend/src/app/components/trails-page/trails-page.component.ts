@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Trail } from 'src/app/models/trail.model';
 
 @Component({
@@ -8,24 +8,35 @@ import { Trail } from 'src/app/models/trail.model';
 })
 export class TrailsPageComponent implements OnInit {
 
-/*   trailList: Trail[];
-  
-  userId: number,
-  name: string,
-  description: string,
-  difficulty: string,
-  length: number,
-  address: string,
-  region: string,
-  longitude: number;
-  latitude: number;
-  image: string; */
-  
+  @Input()
+  trailList!: Trail[];
 
-
+  
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
+  addTrail(trail: Trail): void {
+    console.log('add...' + trail.name);
+    this.trailList.push(trail);
+  }
+
+  removeTrail(index: number): void {
+    console.log('delete trail...' + index);
+    this.trailList.splice(index, 1);
+  }
+
+  editTrail(trail: Trail): void {
+    console.log('edit trail...' + trail.name);
+  }
+
+
+
+  
+
+
+
 
 }
