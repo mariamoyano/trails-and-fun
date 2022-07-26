@@ -1,16 +1,15 @@
-package com.ironhack.edgeservice.controller.dto;
+package com.ironhack.outdoorplacesservice.controller.dto;
 
-
-
-import com.ironhack.edgeservice.enums.Category;
-import com.ironhack.edgeservice.enums.Region;
-import com.ironhack.edgeservice.model.User;
+import com.ironhack.outdoorplacesservice.enums.Category;
+import com.ironhack.outdoorplacesservice.enums.Region;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-
+import javax.validation.constraints.NotNull;
 
 public class PlaceDTO {
+
+    private Long id;
 
 
     private Long userId;
@@ -34,16 +33,12 @@ public class PlaceDTO {
     public PlaceDTO() {
     }
 
-    public PlaceDTO(Long userId, String name, String description, Category category, String address, Region region, double latitude, double longitude, String image) {
-        this.userId = userId;
-        this.name = name;
-        this.description = description;
-        this.category = category;
-        this.address = address;
-        this.region = region;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.image = image;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {

@@ -1,42 +1,41 @@
 package com.ironhack.trailsservice.model;
 
 import com.ironhack.trailsservice.enums.Difficulty;
-
+import com.ironhack.trailsservice.enums.Region;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Trail {
    @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    @NotNull
+
     private Long UserId;
 
-    @NotNull
+
     private String name;
 
-    @NotNull
     private String description;
     @Enumerated(EnumType.STRING)
     private Difficulty difficulty;
-    private String length;
+    private double length;
 
     private String address;
-    @NotNull
-    private String region;
-    private String latitude;
-    private String longitude;
+
+    @Enumerated(EnumType.STRING)
+    private Region region;
+    private double latitude;
+    private double longitude;
 
     private String image;
 
     public Trail() {
     }
 
-    public Trail(Long userId, String name, String description, Difficulty difficulty, String length, String address, String region, String latitude, String longitude, String image) {
+    public Trail(Long userId, String name, String description, Difficulty difficulty, double length, String address, Region region, double latitude, double longitude, String image) {
         UserId = userId;
         this.name = name;
         this.description = description;
@@ -89,11 +88,11 @@ public class Trail {
         this.difficulty = difficulty;
     }
 
-    public String getLength() {
+    public double getLength() {
         return length;
     }
 
-    public void setLength(String length) {
+    public void setLength(double length) {
         this.length = length;
     }
 
@@ -105,27 +104,27 @@ public class Trail {
         this.address = address;
     }
 
-    public String getRegion() {
+    public Region getRegion() {
         return region;
     }
 
-    public void setRegion(String region) {
+    public void setRegion(Region region) {
         this.region = region;
     }
 
-    public String getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 

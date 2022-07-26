@@ -1,44 +1,47 @@
-package com.ironhack.edgeservice.controller.dto;
+package com.ironhack.trailsservice.controller.dto;
 
-
-
-import com.ironhack.edgeservice.enums.Category;
-import com.ironhack.edgeservice.enums.Region;
-import com.ironhack.edgeservice.model.User;
+import com.ironhack.trailsservice.enums.Difficulty;
+import com.ironhack.trailsservice.enums.Region;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.NotNull;
+
+public class TrailDTO {
+
+    private Long id;
 
 
-public class PlaceDTO {
 
+    private Long UserId;
 
-    private Long userId;
-
-
+    @NotNull
     private String name;
 
-
+    @NotNull
     private String description;
-
     @Enumerated(EnumType.STRING)
-    private Category category;
-    private String address;
+    private Difficulty difficulty;
+    private String length;
 
+    private String address;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Region region;
-    private double latitude;
-    private double longitude;
+    private String latitude;
+    private String longitude;
+
     private String image;
 
-    public PlaceDTO() {
+    public TrailDTO() {
     }
 
-    public PlaceDTO(Long userId, String name, String description, Category category, String address, Region region, double latitude, double longitude, String image) {
-        this.userId = userId;
+    public TrailDTO(Long userId, String name, String description, Difficulty difficulty, String length, String address, Region region, String latitude, String longitude, String image) {
+        UserId = userId;
         this.name = name;
         this.description = description;
-        this.category = category;
+        this.difficulty = difficulty;
+        this.length = length;
         this.address = address;
         this.region = region;
         this.latitude = latitude;
@@ -46,12 +49,20 @@ public class PlaceDTO {
         this.image = image;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getUserId() {
-        return userId;
+        return UserId;
     }
 
     public void setUserId(Long userId) {
-        this.userId = userId;
+        UserId = userId;
     }
 
     public String getName() {
@@ -70,12 +81,20 @@ public class PlaceDTO {
         this.description = description;
     }
 
-    public Category getCategory() {
-        return category;
+    public Difficulty getDifficulty() {
+        return difficulty;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
     }
 
     public String getAddress() {
@@ -94,19 +113,19 @@ public class PlaceDTO {
         this.region = region;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 

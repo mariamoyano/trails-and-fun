@@ -1,26 +1,62 @@
 package com.ironhack.edgeservice.controller.dto;
 
-import javax.validation.constraints.NotNull;
+import com.ironhack.edgeservice.enums.Difficulty;
+import com.ironhack.edgeservice.enums.Region;
+import com.sun.istack.NotNull;
+
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 
 public class TrailDTO {
 
-    private String userId;
-    private String name;
-    private String description;
-    private String difficulty;
-    private String category;
-    private String length;
-    private String height;
 
-    @NotNull
-    private String region;
+
+
+    private Long userId;
+
+
+    private String name;
+
+
+    private String description;
+    @Enumerated(EnumType.STRING)
+    private Difficulty difficulty;
+    private String length;
+
+    private String address;
+
+    @Enumerated(EnumType.STRING)
+    private Region region;
     private String latitude;
     private String longitude;
+
     private String image;
 
-
-
     public TrailDTO() {
+    }
+
+    public TrailDTO(Long userId, String name, String description, Difficulty difficulty, String length, String address, Region region, String latitude, String longitude, String image) {
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+        this.difficulty = difficulty;
+        this.length = length;
+        this.address = address;
+        this.region = region;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.image = image;
+    }
+
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId= userId;
     }
 
     public String getName() {
@@ -39,20 +75,12 @@ public class TrailDTO {
         this.description = description;
     }
 
-    public String getDifficulty() {
+    public Difficulty getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(String difficulty) {
+    public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public String getLength() {
@@ -63,12 +91,20 @@ public class TrailDTO {
         this.length = length;
     }
 
-    public String getHeight() {
-        return height;
+    public String getAddress() {
+        return address;
     }
 
-    public void setHeight(String height) {
-        this.height = height;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
     }
 
     public String getLatitude() {
@@ -93,21 +129,5 @@ public class TrailDTO {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
     }
 }

@@ -1,5 +1,6 @@
 package com.ironhack.outdoorplacesservice.service.interfaces;
 
+import com.ironhack.outdoorplacesservice.controller.dto.PlaceDTO;
 import com.ironhack.outdoorplacesservice.model.Place;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public interface PlaceService {
 
     void delete(Long id);
 
-    Place updatePlace(Long id, Place places);
+    Place updatePlace(Long id, PlaceDTO places);
 
     List<Place> findPlaceByName(String name);
 

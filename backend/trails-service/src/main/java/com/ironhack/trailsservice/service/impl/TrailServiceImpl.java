@@ -1,5 +1,6 @@
 package com.ironhack.trailsservice.service.impl;
 
+import com.ironhack.trailsservice.controller.dto.TrailDTO;
 import com.ironhack.trailsservice.model.Trail;
 import com.ironhack.trailsservice.repository.TrailRepository;
 import com.ironhack.trailsservice.service.interfaces.TrailService;
@@ -22,12 +23,16 @@ public class TrailServiceImpl implements TrailService {
     }
 
 
-    public void update(Long id, Trail trail) {
+    public void update(Long id, TrailDTO trail) {
         Trail trailUpdated = trailRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Id " + id + " not found."));
 
         trailRepository.save(trailUpdated);
 
+    }
+
+    public Trail save(Trail trail) {
+        return trailRepository.save(trail);
     }
 
 }

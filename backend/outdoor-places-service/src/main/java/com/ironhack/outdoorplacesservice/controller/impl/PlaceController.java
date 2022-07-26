@@ -1,5 +1,6 @@
 package com.ironhack.outdoorplacesservice.controller.impl;
 
+import com.ironhack.outdoorplacesservice.controller.dto.PlaceDTO;
 import com.ironhack.outdoorplacesservice.controller.interfaces.PlaceControllerInterface;
 import com.ironhack.outdoorplacesservice.model.Place;
 import com.ironhack.outdoorplacesservice.repository.PlaceRepository;
@@ -26,14 +27,14 @@ public class PlaceController implements PlaceControllerInterface {
 
     @PutMapping("/place/edit/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Place updatePlace(@PathVariable("id") Long id, @RequestBody @Valid Place place) {
+    public Place updatePlace(@PathVariable("id") Long id, @RequestBody @Valid PlaceDTO place) {
         Place placeUpdated = placeService.updatePlace(id, place);
         return placeUpdated;
     }
 
     @DeleteMapping("/place/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletePlace(Long id) {
+    public void deletePlace(@PathVariable("id") Long id) {
         placeService.delete(id);
     }
 
@@ -70,13 +71,13 @@ public class PlaceController implements PlaceControllerInterface {
 
     @GetMapping("/places/address/{address}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Place> findPlaceByAddress(String address) {
+    public List<Place> findPlaceByAddress(@PathVariable (name = "address")String address) {
         return placeService.findPlaceByAddress(address);
     }
 
     @GetMapping("/places/region/{region}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Place> findPlaceByRegion(String region) {
+    public List<Place> findPlaceByRegion(@PathVariable (name = "region")String region) {
         return placeService.findPlaceByRegion(region);
     }
 

@@ -1,13 +1,11 @@
 package com.ironhack.edgeservice.controller.impl;
 
-import com.ironhack.edgeservice.controller.dto.UserDTO;
 import com.ironhack.edgeservice.controller.dto.RoleDTO;
+import com.ironhack.edgeservice.controller.dto.UserDTO;
 import com.ironhack.edgeservice.controller.interfaces.UserController;
 import com.ironhack.edgeservice.model.Role;
 import com.ironhack.edgeservice.model.User;
-
 import com.ironhack.edgeservice.service.interfaces.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

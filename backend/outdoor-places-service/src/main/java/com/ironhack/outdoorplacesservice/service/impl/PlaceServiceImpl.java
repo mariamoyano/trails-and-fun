@@ -1,5 +1,6 @@
 package com.ironhack.outdoorplacesservice.service.impl;
 
+import com.ironhack.outdoorplacesservice.controller.dto.PlaceDTO;
 import com.ironhack.outdoorplacesservice.model.Place;
 import com.ironhack.outdoorplacesservice.repository.PlaceRepository;
 import com.ironhack.outdoorplacesservice.service.interfaces.PlaceService;
@@ -30,18 +31,18 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
 
-    public Place updatePlace(Long id, Place places) {
+    public Place updatePlace(Long id, PlaceDTO places) {
         Place placesUpdated = placeRepository.findById(id)
-                .map(outdoorPlaces1 -> {
-                    outdoorPlaces1.setName(places.getName());
-                    outdoorPlaces1.setCategory(places.getCategory());
-                    outdoorPlaces1.setAddress(places.getAddress());
-                    outdoorPlaces1.setRegion(places.getRegion());
-                    return placeRepository.save(outdoorPlaces1);
-                })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "OutdoorPlaces not found"));
-        return placesUpdated;
-
+        placesUpdated.setName(places.getName());
+        placesUpdated.setDescription(places.getDescription());
+        placesUpdated.setCategory(places.getCategory());
+        placesUpdated.setAddress(places.getAddress());
+        placesUpdated.setRegion(places.getRegion());
+        placesUpdated.setLatitude(places.getLatitude());
+        placesUpdated.setLongitude(places.getLongitude());
+        placesUpdated.setImage(places.getImage());
+        return placeRepository.save(placesUpdated);
     }
 
 

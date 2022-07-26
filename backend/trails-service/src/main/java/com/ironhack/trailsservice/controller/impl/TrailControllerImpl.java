@@ -1,5 +1,6 @@
 package com.ironhack.trailsservice.controller.impl;
 
+import com.ironhack.trailsservice.controller.dto.TrailDTO;
 import com.ironhack.trailsservice.controller.interfaces.TrailControllerInterface;
 import com.ironhack.trailsservice.model.Trail;
 import com.ironhack.trailsservice.repository.TrailRepository;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -35,22 +37,22 @@ public class TrailControllerImpl implements TrailControllerInterface {
 
     }
 
-    @PostMapping("/trail/create")
+    @PostMapping("/trail/add")
     @ResponseStatus(HttpStatus.CREATED)
     public Trail create(@RequestBody Trail trail) {
 
-        return trailRepository.save(trail);
+        return trailsService.save(trail);
     }
 
     @PutMapping("/trail/edit/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(Long id, Trail trail) {
+    public void update(@PathVariable Long id,@RequestBody @Valid TrailDTO trail) {
         trailsService.update(id, trail);
     }
 
-    @DeleteMapping("/trail/{id}")
+    @DeleteMapping("/trail/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(Long id) {
+    public void delete(@PathVariable Long id) {
         trailsService.delete(id);
 
 

@@ -2,6 +2,7 @@ package com.ironhack.outdoorplacesservice.model;
 
 
 import com.ironhack.outdoorplacesservice.enums.Category;
+import com.ironhack.outdoorplacesservice.enums.Region;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,18 +14,21 @@ public class Place {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+
     private Long userId;
 
-    @NotNull
+
     private String name;
 
-    @NotNull
+
     private String description;
     @Enumerated(EnumType.STRING)
     private Category category;
     private String address;
-    private String region;
+
+
+    @Enumerated(EnumType.STRING)
+    private Region region;
     private double latitude;
     private double longitude;
     private String image;
@@ -33,7 +37,7 @@ public class Place {
     }
 
 
-    public Place(Long userId, String name, String description, Category category, String address, String region, double latitude, double longitude, String image) {
+    public Place(Long userId, String name, String description, Category category, String address, Region region, double latitude, double longitude, String image) {
         this.userId = userId;
         this.name = name;
         this.description = description;
@@ -93,11 +97,11 @@ public class Place {
         this.address = address;
     }
 
-    public String getRegion() {
+    public Region getRegion() {
         return region;
     }
 
-    public void setRegion(String region) {
+    public void setRegion(Region region) {
         this.region = region;
     }
 

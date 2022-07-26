@@ -1,5 +1,6 @@
 package com.ironhack.trailsservice.repository;
 
+import com.ironhack.trailsservice.controller.impl.TrailControllerImpl;
 import com.ironhack.trailsservice.model.Trail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -16,9 +17,7 @@ public interface TrailRepository extends JpaRepository<Trail, Long> {
 
     Optional<Trail> findById(Long id);
 
-    void delete(Trail trails);
 
-
-    void save(String trail);
+    void delete(Trail trail);
 }
 
