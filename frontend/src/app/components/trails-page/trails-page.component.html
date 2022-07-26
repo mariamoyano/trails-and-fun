@@ -1,12 +1,13 @@
 <app-nav-bar></app-nav-bar>
-<p>trails-page works!</p>
-
 
 <h1>TRAILS</h1>
-<app-trails-form></app-trails-form>
+<div>
+<!-- <app-trails-form></app-trails-form> -->
+</div>
 <div class="container">
     <div class="trail-list">
-        <app-trails-item *ngFor="let trail of trailList; let i = index" [trail]="trail" [index]="i"></app-trails-item>
-        
+        <app-trails-item></app-trails-item>
+      
+    </div>
  
 </div>

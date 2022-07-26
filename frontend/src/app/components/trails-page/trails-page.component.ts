@@ -1,36 +1,65 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { Trail } from 'src/app/models/trail.model';
 
 @Component({
   selector: 'app-trails-page',
   templateUrl: './trails-page.component.html',
-  styleUrls: ['./trails-page.component.css']
+  styleUrls: ['./trails-page.component.css'],
+  
 })
 export class TrailsPageComponent implements OnInit {
 
-  @Input()
-  trailList!: Trail[];
+  trail:Trail;
+  trailsList: Trail[];
 
   
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { 
+    this.trail=new Trail(0,0,"","","",0,"","",0,0,"");
+    this.trailsList=[];
+  }
 
   ngOnInit(): void {
+      this.getTrails();
+  }
+
+  private getTrails(){
+  this.authService.getTrails().subscribe(
+    (trailsList:Trail[]) => {
+      this.trailsList=trailsList;
+    }
+  )
   }
 
 
-  addTrail(trail: Trail): void {
-    console.log('add...' + trail.name);
-    this.trailList.push(trail);
+  addTrail(): void {
+    
+    this.authService.createTrail(this.trail).subscribe(
+      (trail:Trail) => {
+        this.trailsList.push(trail);
+      }
+    )
   }
+
+
 
   removeTrail(index: number): void {
-    console.log('delete trail...' + index);
-    this.trailList.splice(index, 1);
+    
+    this.trailsList.splice(index, 1);
+    this.authService.deleteTrail(index).subscribe();
   }
 
   editTrail(trail: Trail): void {
-    console.log('edit trail...' + trail.name);
+
   }
+  }
+
 
 
 
@@ -39,4 +68,3 @@ export class TrailsPageComponent implements OnInit {
 
 
 
-}

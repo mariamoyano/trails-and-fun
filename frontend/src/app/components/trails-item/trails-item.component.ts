@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Trail } from 'src/app/models/trail.model';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-trails-item',
@@ -8,29 +11,55 @@ import { Trail } from 'src/app/models/trail.model';
 })
 export class TrailsItemComponent implements OnInit {
 
-  @Input()
-  trail: Trail;
+  trail:Trail;
+  trailsList!: Trail[];
 
-
-  @Input()
-  index: number;
-
-  @Output()
-  removeTrailEvent: EventEmitter<number>; 
-
-  constructor() { 
-    this.trail = new Trail(0, 1, '', '', '', 0, '', '', 0, 0, '');
-    this.index = 0;
-    this.removeTrailEvent = new EventEmitter<number>();
+  
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { 
+    this.trail=new Trail(0,0,"","","",0,"","",0,0,"");
+    this.trailsList=[];
   }
 
   ngOnInit(): void {
+    this.getAllTrails();
+
+  }
+  
+  getAllTrails(){
+    this.authService.getTrails().subscribe(
+      data  => {this.trailsList = data;
+        console.log(data);
+       },
+      
+      error => {
+        console.log(error);
+      });
+    
   }
 
-  removeTrail(): void {
-    console.log('eliminando trail...' + this.index);
 
-    this.removeTrailEvent.emit(this.index); 
+
+  addTrail(): void {
+    
+    this.authService.createTrail(this.trail).subscribe(
+      (trail:Trail) => {
+        this.trailsList.push(trail);
+      }
+    )
   }
 
-}
+
+
+  removeTrail(index: number): void {
+    
+    this.trailsList.splice(index, 1);
+    this.authService.deleteTrail(index).subscribe();
+  }
+
+  editTrail(trail: Trail): void {
+
+  }
+  }
