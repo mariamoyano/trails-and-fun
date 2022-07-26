@@ -1,18 +1,35 @@
+<div class="content"  *ngFor="let trail of trailsList; let i = index">
+    <mat-card class="card" >
+        <mat-card-content class="card-image">
+        <img mat-card-image src={{trail.image}} class="trail-image" [alt]="trail.name">
+    </mat-card-content>
+           <mat-card-content class="card-details">
+             <h2>{{trail.name}}</h2>
+                <p>Description: {{trail.description}}</p>
+                <p>Length: {{trail.length}}</p>
+                <p>Difficulty: {{trail.difficulty}}</p>
+                <p>Address: {{trail.address}}</p>
+                <p>Region: {{trail.region}}</p>
+                <p>Latitude: {{trail.latitude}}</p>
+                <p>Longitude: {{trail.longitude}}</p>
+           </mat-card-content>
+    <mat-card-content class="map">
+        <google-map  height="400px" 
+        width="750px" 
+        [center]="centerList[i]"
+        [zoom]="zoom"
+        >
+</google-map>
 
-    <mat-card class="card" *ngFor="let trail of trailsList; let i = index">
-        <img src={{trail.image}} class="trail-image" [alt]="trail.name">
-        <span>
-        <h2>Name: {{trail.name}}</h2>
-        <p>Description: {{trail.description}}</p>
-        <p>Length: {{trail.length}}</p>
-        <p>Difficulty: {{trail.difficulty}}</p>
-        <p>{{trail.address}}</p>
-        <p>{{trail.region}}</p>
-        <p>{{trail.latitude}}</p>
-        <p>{{trail.longitude}}</p>
-    </span>
-        
+<div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div>
+    </mat-card-content>
+    <div>
+
+        <button (click)="removeTrail(i)">Delete  </button>
+    </div>   
+    
     </mat-card>
-    <button >Delete index</button>
+</div>
 
 

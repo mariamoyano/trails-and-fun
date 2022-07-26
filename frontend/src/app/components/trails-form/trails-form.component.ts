@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Trail } from 'src/app/models/trail.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trails-form',
@@ -24,10 +26,12 @@ export class TrailsFormComponent implements OnInit {
   longitudeInput: FormControl;
   imageInput: FormControl;
 
+  trailsList!: Trail[];
   
 
 
-  constructor() {
+  constructor(    private authService: AuthService,
+    private router: Router) {
 
     this.difficultyOptions = [ 'EASY', 'MODERATE', 'DIFFICULT' ];
     this.regionOptions = [ 'East', 'West', 'North', 'South' ];
@@ -66,6 +70,17 @@ export class TrailsFormComponent implements OnInit {
     console.log('Form submitted');
     const trail: Trail = this.trailForm.value;
     console.log(trail);
+    this.addTrail(trail);
+  }
+
+  addTrail(trail:Trail): void {
+    
+    this.authService.createTrail(trail).subscribe(
+      (trail:Trail) => {
+        this.trailsList.push(trail);
+
+      }
+    )
   }
 
 }

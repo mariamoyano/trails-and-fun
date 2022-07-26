@@ -13,7 +13,10 @@ export class TrailsItemComponent implements OnInit {
 
   trail:Trail;
   trailsList!: Trail[];
-
+  display : any;
+  center: google.maps.LatLngLiteral = {lat: 40.4165, lng: -3.70256};
+  centerList: google.maps.LatLngLiteral[];
+  zoom = 14;
   
   constructor(
     private authService: AuthService,
@@ -21,23 +24,33 @@ export class TrailsItemComponent implements OnInit {
   ) { 
     this.trail=new Trail(0,0,"","","",0,"","",0,0,"");
     this.trailsList=[];
+    this.centerList=[];
+   
   }
 
   ngOnInit(): void {
     this.getAllTrails();
+    
+    
+  }
+  getLocation(){
+    this.trailsList.forEach(element => {
+      this.center = {lat: element.latitude, lng: element.longitude}
+      this.centerList.push(this.center);
+    });
 
   }
-  
   getAllTrails(){
     this.authService.getTrails().subscribe(
       data  => {this.trailsList = data;
         console.log(data);
+        
        },
       
       error => {
         console.log(error);
       });
-    
+      this.getLocation();
   }
 
 
@@ -47,6 +60,7 @@ export class TrailsItemComponent implements OnInit {
     this.authService.createTrail(this.trail).subscribe(
       (trail:Trail) => {
         this.trailsList.push(trail);
+
       }
     )
   }
