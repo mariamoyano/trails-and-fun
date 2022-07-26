@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Trails } from 'src/app/models/trails.model';
+import { Trail } from 'src/app/models/trail.model';
 
 @Component({
   selector: 'app-trails-item',
@@ -9,7 +9,7 @@ import { Trails } from 'src/app/models/trails.model';
 export class TrailsItemComponent implements OnInit {
 
   @Input()
-  trail: Trails;
+  trail: Trail;
 
 
   @Input()
@@ -19,7 +19,7 @@ export class TrailsItemComponent implements OnInit {
   removeTrailEvent: EventEmitter<number>; 
 
   constructor() { 
-    this.trail = new Trails(0,0,"","","",0,"","","");
+    this.trail = new Trail(0, 1, '', '', '', 0, '', '', 0, 0, '');
     this.index = 0;
     this.removeTrailEvent = new EventEmitter<number>();
   }

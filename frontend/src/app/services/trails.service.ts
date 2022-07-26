@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Trails } from '../models/trails.model';
+import { Trails } from '../models/trail.model';
 @Injectable({
   providedIn: 'root'
 })

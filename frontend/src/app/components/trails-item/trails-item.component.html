@@ -5,8 +5,13 @@
 <h2>{{trail.name}}</h2>
 <p>{{trail.description}}</p>
 <p>{{trail.length}}</p>
-<p>{{trail.location}}</p>
 <p>{{trail.difficulty}}</p>
+<p>{{trail.address}}</p>
+<p>{{trail.region}}</p>
+<p>{{trail.latitude}}</p>
+<p>{{trail.longitude}}</p>
+<img [src]="trail.image" [alt]="trail.name">
+
 <button (click)="removeTrail()">Delete index {{index}}</button>
 
 

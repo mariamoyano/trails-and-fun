@@ -1,1 +1,52 @@
-<p>trails-form works!</p>
+
+
+
+<div class="container">
+
+    <mat-card class="card">
+    <form ngSubmit="onSubmit()" [formGroup]="trailForm">
+        <mat-card-header>
+            <mat-card-title>Add trail:</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+        <div class="form-group">
+            <p class="input-label">Name:</p>
+            <input type="text" class="form-control" id="trailName" formControlName="trailName">
+        </div>
+        <div class="form-group">
+        <p class="input-label">Lenght:</p> 
+                    <input type="text" class="form-control" id="trailLength" formControlName="trailLength">
+        </div>
+
+        <div class="form-group">
+            <p class="input-label"> Difficulty:     </p>
+           
+            <input type="text" class="form-control" id="trailDifficulty" formControlName="trailDifficulty">
+        </div>
+
+        <div class="form-group">
+            <p class="input-label">ImageUrl:</p>
+            <input type="text" class="form-control" id="trailImage" formControlName="trailImage">
+        </div>
+        <div class="form-group">
+            <p class="input-label">Region:</p>
+            <input type="text" class="form-control" id="trailLocation" formControlName="trailLocation">
+        </div>
+        <div class="form-group">
+            <p class="input-label">Latitude:</p>
+            <input type="text" class="form-control" id="trailLatitude" formControlName="trailLatitude">
+        </div>
+        <div class="form-group">
+            <p class="input-label">Longitude:</p>
+            <input type="text" class="form-control" id="trailLongitude" formControlName="trailLongitude">
+        </div>
+
+        <div class="form-group">
+            <p class="input-label">Description:</p>
+            <input type="text" class="form-control" id="trailDescription" formControlName="trailDescription">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </mat-card-content>
+    </form>
+    </mat-card>
+</div>

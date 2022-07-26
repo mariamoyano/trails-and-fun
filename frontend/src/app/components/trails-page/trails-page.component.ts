@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Trail } from 'src/app/models/trail.model';
 
 @Component({
   selector: 'app-trails-page',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrailsPageComponent implements OnInit {
 
-  trailList: Trails[];
+/*   trailList: Trail[];
   
   userId: number,
   name: string,
@@ -15,7 +16,11 @@ export class TrailsPageComponent implements OnInit {
   difficulty: string,
   length: number,
   address: string,
-  location: string,
+  region: string,
+  longitude: number;
+  latitude: number;
+  image: string; */
+  
 
 
   constructor() { }

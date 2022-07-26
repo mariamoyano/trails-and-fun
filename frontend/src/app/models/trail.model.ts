@@ -1,6 +1,6 @@
 import { User } from "./user.model";
 
-export class Trails{
+export class Trail{
     constructor(
         private _id: number | null,
         private _userId: number,
@@ -9,11 +9,12 @@ export class Trails{
         private _difficulty: string,
         private _length: number,
         private _address: string,
-        private _location: string,
-        
+        private _region: string,
+        private _latitude: number,
+        private _longitude: number,
         private _image: string,
-       
-    ) {}
+    ) { }
+
 
     public get id(): number | null {
         return this._id;
@@ -51,12 +52,8 @@ export class Trails{
     public set address(value: string) {
         this._address = value;
     }
-    public get location(): string {
-        return this._location;
-    }
-    public set location(value: string) {
-        this._location = value;
-    }
+  
+
     public get userId(): number {
         return this._userId;
     }
@@ -69,19 +66,41 @@ export class Trails{
     public set image(value: string) {
         this._image = value;
     }
+    public get region(): string {
+        return this._region;
+    }
+    public set region(value: string) {
+        this._region = value;
+    }
+    public get latitude(): number {
+        return this._latitude;
+    }
+    public set latitude(value: number) {
+        this._latitude = value;
+    }
+    public get longitude(): number {
+        return this._longitude;
+    }
+    public set longitude(value: number) {
+        this._longitude = value;
+    }
+
     public toJSON(): object {
         return {
-            id: this._id,
-            name: this._name,
-            description: this._description,
-            difficulty: this._difficulty,
-            length: this._length,
-            address: this._address,
-            location: this._location,
-            userId: this._userId,
-            images: this._image,
+            id: this.id,
+            userId: this.userId,
+            name: this.name,
+            description: this.description,
+            difficulty: this.difficulty,
+            length: this.length,
+            address: this.address,
+            region: this.region,
+            latitude: this.latitude,
+            longitude: this.longitude,
+            image: this.image,
         };
     }
+
     
 
 

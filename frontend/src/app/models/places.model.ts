@@ -2,7 +2,7 @@ import { User } from "./user.model"
 export class Places {
     constructor(
         private _id: number | null,
-        private _user: User,
+        private _userId: number,
         private _name: string,
         private _description: string,
         private _category: string,
