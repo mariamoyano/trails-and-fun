@@ -41,7 +41,7 @@ public class TrailControllerImpl implements TrailControllerInterface {
     @ResponseStatus(HttpStatus.CREATED)
     public Trail create(@RequestBody Trail trail) {
 
-        return trailsService.save(trail);
+        return trailRepository.save(trail);
     }
 
     @PutMapping("/trail/edit/{id}")

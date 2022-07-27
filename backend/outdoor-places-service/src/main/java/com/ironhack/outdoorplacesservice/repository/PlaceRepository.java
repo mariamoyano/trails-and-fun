@@ -1,5 +1,6 @@
 package com.ironhack.outdoorplacesservice.repository;
 
+import com.ironhack.outdoorplacesservice.controller.dto.PlaceDTO;
 import com.ironhack.outdoorplacesservice.model.Place;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,7 +16,7 @@ public interface PlaceRepository extends JpaRepository<Place, Long> {
 
     Optional<Place> findById(Long id);
 
-    void delete(Place places);
+    void delete(PlaceDTO places);
 
     List<Place> findByName(String name);
 

@@ -31,8 +31,6 @@ public class TrailServiceImpl implements TrailService {
 
     }
 
-    public Trail save(Trail trail) {
-        return trailRepository.save(trail);
-    }
+
 
 }

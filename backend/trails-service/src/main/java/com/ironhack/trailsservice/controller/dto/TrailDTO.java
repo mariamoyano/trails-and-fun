@@ -10,22 +10,19 @@ import javax.validation.constraints.NotNull;
 public class TrailDTO {
 
     private Long id;
-
-
-
     private Long UserId;
 
-    @NotNull
+
     private String name;
 
-    @NotNull
+
     private String description;
     @Enumerated(EnumType.STRING)
     private Difficulty difficulty;
     private String length;
 
     private String address;
-    @NotNull
+
     @Enumerated(EnumType.STRING)
     private Region region;
     private String latitude;

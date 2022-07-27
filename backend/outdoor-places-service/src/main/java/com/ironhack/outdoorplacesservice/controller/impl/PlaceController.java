@@ -35,7 +35,8 @@ public class PlaceController implements PlaceControllerInterface {
     @DeleteMapping("/place/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePlace(@PathVariable("id") Long id) {
-        placeService.delete(id);
+
+       placeRepository.deleteById(id);
     }
 
     @PostMapping("/place/add")

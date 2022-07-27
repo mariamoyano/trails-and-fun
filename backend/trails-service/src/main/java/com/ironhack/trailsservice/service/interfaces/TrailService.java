@@ -12,5 +12,5 @@ public interface TrailService {
 
     void update(Long id, TrailDTO trails);
 
-    Trail save(Trail trail);
+
 }
