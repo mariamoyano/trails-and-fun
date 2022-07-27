@@ -1,11 +1,9 @@
 package com.ironhack.edgeservice.controller.impl;
 
+import com.ironhack.edgeservice.client.EventClient;
 import com.ironhack.edgeservice.client.PlacesClient;
 import com.ironhack.edgeservice.client.TrailsClient;
-import com.ironhack.edgeservice.controller.dto.PlaceDTO;
-import com.ironhack.edgeservice.controller.dto.RoleDTO;
-import com.ironhack.edgeservice.controller.dto.TrailDTO;
-import com.ironhack.edgeservice.controller.dto.UserDTO;
+import com.ironhack.edgeservice.controller.dto.*;
 import com.ironhack.edgeservice.controller.interfaces.UserController;
 import com.ironhack.edgeservice.enums.Category;
 import com.ironhack.edgeservice.enums.Region;
@@ -36,7 +34,8 @@ public class UserControllerImpl implements UserController {
     @Autowired
     private TrailsClient trailsClient;
 
-
+    @Autowired
+    private EventClient eventClient;
 
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
@@ -175,6 +174,72 @@ public class UserControllerImpl implements UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public TrailDTO createTrail(TrailDTO trail) {
         return trailsClient.createTrail(trail);
+    }
+
+    @GetMapping("/comments/trails")
+    @ResponseStatus(HttpStatus.OK)
+    public List<CommentDTO> getComments() {
+        return trailsClient.getComments();
+    }
+
+    @GetMapping("/comments/trails/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<CommentDTO> getCommentsById(@PathVariable Long id) {
+        return trailsClient.getCommentsById(id);
+    }
+    @GetMapping("/comments/trail/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<CommentDTO> getCommentsByTrailId(@PathVariable Long id) {
+        return trailsClient.getCommentsByTrailId(id);
+    }
+
+
+    @PostMapping("/comment/add")
+    @ResponseStatus(HttpStatus.CREATED)
+    public CommentDTO createComment(@RequestBody CommentDTO comment) {
+        return trailsClient.createComment(comment);
+    }
+
+    @PutMapping("/comment/edit/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateComment(@RequestBody CommentDTO comment) {
+        trailsClient.updateComment( comment);
+    }
+
+    @DeleteMapping("/comment/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteComment(@PathVariable Long id) {
+        trailsClient.deleteComment(id);
+    }
+
+    @GetMapping("/events")
+    @ResponseStatus(HttpStatus.OK)
+    public List<EventDTO> getEvents() {
+        return eventClient.getEvents();
+    }
+
+    @GetMapping("/event/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public EventDTO getEvent(@PathVariable Long id) {
+        return eventClient.getEvent(id);
+    }
+
+//    @PutMapping("/event/edit/{id}")
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    public void updateEvent(@PathVariable Long id, EventDTO event) {
+//        eventClient.updateEvent(id, event);
+   // }
+
+    @DeleteMapping("/event/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEvent(@PathVariable Long id) {
+        eventClient.deleteEvent(id);
+    }
+
+    @PostMapping("/event/add")
+    @ResponseStatus(HttpStatus.CREATED)
+    public EventDTO createEvent(EventDTO event) {
+        return eventClient.createEvent(event);
     }
 
 }

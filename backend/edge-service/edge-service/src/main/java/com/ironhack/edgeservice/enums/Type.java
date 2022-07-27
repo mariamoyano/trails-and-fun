@@ -1,4 +1,5 @@
 package com.ironhack.edgeservice.enums;
 
-public class TrailType {
+public enum Type {
+    TRAIL, PLACE
 }

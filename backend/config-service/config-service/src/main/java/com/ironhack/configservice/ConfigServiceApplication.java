@@ -1,3 +1,4 @@
+
 package com.ironhack.configservice;
 
 import org.springframework.boot.SpringApplication;

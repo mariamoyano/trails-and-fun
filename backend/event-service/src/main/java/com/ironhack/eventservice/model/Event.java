@@ -1,11 +1,11 @@
 package com.ironhack.eventservice.model;
 
+import com.ironhack.eventservice.enums.Region;
 import com.ironhack.eventservice.enums.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+
 @Entity
 public class Event {
 
@@ -15,12 +15,16 @@ public class Event {
     private String name;
     private String description;
     private String address;
+
+    @Enumerated(EnumType.STRING)
+    private Region region;
     private double latitude;
     private double longitude;
     private String image;
     private String date;
     private String time;
     private double price;
+    @Enumerated(EnumType.STRING)
     private Type type;
 
     public Event() {
@@ -125,5 +129,12 @@ public class Event {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public Region getRegion() {
+        return region;
+    }
+    public void setRegion(Region region) {
+        this.region = region;
     }
 }

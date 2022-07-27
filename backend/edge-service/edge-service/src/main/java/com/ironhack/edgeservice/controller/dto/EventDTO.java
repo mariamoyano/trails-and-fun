@@ -1,11 +1,14 @@
-package com.ironhack.eventservice.controller.dto;
+package com.ironhack.edgeservice.controller.dto;
 
-import com.ironhack.eventservice.enums.Type;
 
-import javax.persistence.*;
+import com.ironhack.edgeservice.enums.Type;
+import lombok.Data;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.swing.plaf.synth.Region;
 
-
+@Data
 public class EventDTO {
 
 

@@ -42,7 +42,7 @@ public class EventControllerImpl implements EventController {
     public void deleteEvent(@PathVariable(name = "id") Long id) {
         eventRepository.deleteById(id);
     }
-    @PutMapping("/event/{id}")
+    @PutMapping("/event/edit/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Event updateEvent(@PathVariable(name = "id") Long id, @RequestBody Event event) {
         return eventService.updateEvent(id, event);
