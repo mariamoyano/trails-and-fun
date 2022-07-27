@@ -10,6 +10,10 @@ import { PlacesItemComponent } from './components/places-item/places-item.compon
 import { PlacesPageComponent } from './components/places-page/places-page.component';
 import { TrailsPageComponent } from './components/trails-page/trails-page.component';
 import { EventsPageComponent } from './components/events-page/events-page.component';
+import { TrailsFormComponent } from './components/trails-form/trails-form.component';
+import { PlacesFormComponent } from './components/places-form/places-form.component';
+import { EventItemComponent } from './components/event-item/event-item.component';
+import { EventFormComponent } from './components/event-form/event-form.component';
 
 const routes: Routes = [
   {
@@ -30,12 +34,37 @@ const routes: Routes = [
     component: TrailsPageComponent
   },
   {
+    path: 'trails/:id',
+    component: TrailsItemComponent
+  },
+  {
+    path: 'add-trail',
+    component: TrailsFormComponent
+  },
+  {
     path: 'places',
     component: PlacesPageComponent
+  },
+
+  {
+    path: 'places/:id',
+    component: PlacesItemComponent
+  },
+  {
+    path: 'add-place',
+    component: PlacesFormComponent
   },
   {
     path: 'events',
     component: EventsPageComponent
+  },
+  {
+    path: 'events/:id',
+    component: EventItemComponent
+  },
+  {
+    path: 'add-event',
+    component: EventFormComponent
   },
 ];
 

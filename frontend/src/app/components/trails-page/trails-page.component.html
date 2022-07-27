@@ -1,13 +1,18 @@
 <app-nav-bar></app-nav-bar>
 
-<h1>TRAILS</h1>
 
 <div class="container">
+    <h1>TRAILS</h1>
+    <div class="addbar">
+        <a mat-button class="item" color="primary" [routerLink]="['/trails']">TRAILS</a>
+            
+        <a mat-button class="item"  color="primary" [routerLink]="['/add-trail']">ADD</a>
+    </div>
     <div class="trail-list">
+        
+
         <app-trails-item></app-trails-item>
       
     </div>
-    <div>
-        <app-trails-form></app-trails-form>
-        </div>
+  
 </div>

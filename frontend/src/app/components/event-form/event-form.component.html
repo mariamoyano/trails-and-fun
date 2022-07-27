@@ -1,4 +1,14 @@
 <div class="container">
+       
+    <h1>EVENTS</h1>
+    <div class="addbar">
+        <a mat-button class="item" color="primary" [routerLink]="['/events']">BACK</a>
+            
+        <a mat-button class="item"  color="primary" [routerLink]="['/add-event']">ADD</a>
+    </div>
+</div>
+
+<div class="container">
     <form (ngSubmit)="createEvent()">
         <mat-card class="card">
         <form (ngSubmit)="createEvent()" [formGroup]="eventForm">

@@ -24,6 +24,7 @@ import { TrailsFormComponent } from './components/trails-form/trails-form.compon
 import { PlacesFormComponent } from './components/places-form/places-form.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapComponent } from './components/map/map.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -56,8 +57,8 @@ import { MapComponent } from './components/map/map.component';
     MatButtonModule,
     MatInputModule,
     MatToolbarModule,
-    GoogleMapsModule
-    
+    GoogleMapsModule,
+    MatGridListModule
 
   ],
   providers: [],
