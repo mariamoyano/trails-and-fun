@@ -1,48 +1,42 @@
-package com.ironhack.outdoorplacesservice.controller.dto;
+package com.ironhack.eventservice.controller.dto;
 
-import com.ironhack.outdoorplacesservice.enums.Category;
-import com.ironhack.outdoorplacesservice.enums.Region;
+import com.ironhack.eventservice.enums.Type;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public class PlaceDTO {
+
+public class EventDTO {
+
 
     private Long id;
-
-
-    private Long userId;
-
-
     private String name;
-
-
     private String description;
-
-    @Enumerated(EnumType.STRING)
-    private Category category;
     private String address;
-
-    @Enumerated(EnumType.STRING)
-    private Region region;
     private double latitude;
     private double longitude;
     private String image;
+    private String date;
+    private String time;
+    private double price;
+    private Type type;
 
-    public PlaceDTO() {
+    public EventDTO() {
     }
 
-    public PlaceDTO(Long userId, String name, String description, Category category, String address, Region region, double latitude, double longitude, String image) {
-        this.userId = userId;
+    public EventDTO(String name, String description, String address, double latitude, double longitude, String image, String date, String time, double price, Type type) {
         this.name = name;
         this.description = description;
-        this.category = category;
         this.address = address;
-        this.region = region;
         this.latitude = latitude;
         this.longitude = longitude;
         this.image = image;
+        this.date = date;
+        this.time = time;
+        this.price = price;
+        this.type = type;
     }
 
     public Long getId() {
@@ -51,14 +45,6 @@ public class PlaceDTO {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 
     public String getName() {
@@ -77,28 +63,12 @@ public class PlaceDTO {
         this.description = description;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public Region getRegion() {
-        return region;
-    }
-
-    public void setRegion(Region region) {
-        this.region = region;
     }
 
     public double getLatitude() {
@@ -123,5 +93,37 @@ public class PlaceDTO {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 }

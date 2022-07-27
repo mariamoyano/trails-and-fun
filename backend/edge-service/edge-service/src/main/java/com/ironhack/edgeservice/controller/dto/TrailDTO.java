@@ -12,6 +12,8 @@ import javax.persistence.Enumerated;
 @Data
 public class TrailDTO {
 
+    private Long id;
+
     private Long userId;
 
     private String name;
@@ -44,6 +46,14 @@ public class TrailDTO {
         this.latitude = latitude;
         this.longitude = longitude;
         this.image = image;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {
