@@ -34,7 +34,7 @@ export class TrailsFormComponent implements OnInit {
     private router: Router) {
 
     this.difficultyOptions = [ 'EASY', 'MODERATE', 'DIFFICULT' ];
-    this.regionOptions = [ 'East', 'West', 'North', 'South' ];
+    this.regionOptions = [ 'MADRID', 'BARCELONA', 'SEVILLA', 'MALAGA' ];
 
     this.nameInput = new FormControl('');
     this.descriptionInput = new FormControl('');

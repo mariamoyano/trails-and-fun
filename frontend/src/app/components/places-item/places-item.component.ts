@@ -15,6 +15,10 @@ export class PlacesItemComponent implements OnInit {
 
     place:Places;
     placesList: Places[];
+    display : any;
+    center: google.maps.LatLngLiteral = {lat: 40.4165, lng: -3.70256};
+    centerList: google.maps.LatLngLiteral[];
+    zoom = 14;
   
     
     constructor(
@@ -23,15 +27,32 @@ export class PlacesItemComponent implements OnInit {
     ) { 
       this.place=new Places(0,0,"","","","","",0,0,"");
       this.placesList=[];
+      this.centerList=[];
     }
   
     ngOnInit(): void {
-      this.authService.getPlaces().subscribe(
-        Data => {this.placesList = Data}
-      )
+      this.getAllPlaces();
     }
   
+    getLocation(){
+      this.placesList.forEach(element => {
+        this.center = {lat: element.latitude, lng: element.longitude}
+        this.centerList.push(this.center);
+      });
   
+    }
+    getAllPlaces(){
+      this.authService.getPlaces().subscribe(
+        data  => {this.placesList = data;
+          console.log(data);
+          
+         },
+        
+        error => {
+          console.log(error);
+        });
+        this.getLocation();
+    }
   
   
     addPlace(): void {
@@ -45,10 +66,10 @@ export class PlacesItemComponent implements OnInit {
   
   
   
-    removeTrail(index: number): void {
+    removePlace(index: number): void {
       
       this.placesList.splice(index, 1);
-      this.authService.deleteTrail(index).subscribe();
+      this.authService.deletePlace(index).subscribe();
     }
   
     editTrail(place: Places): void {

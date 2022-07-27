@@ -1,1 +1,34 @@
-<p>places-item works!</p>
+<div class="content"  *ngFor="let place of placesList; let i = index">
+    <mat-card class="card" >
+        <mat-card-content class="card-image">
+        <img mat-card-image src={{place.image}} class="places-image" [alt]="place.name">
+    </mat-card-content>
+           <mat-card-content class="card-details">
+             <h2>{{place.name}}</h2>
+                <p>Description: {{place.description}}</p>
+                <p>Category: {{place.category}}</p>
+                <p>Address: {{place.address}}</p>
+                <p>Region: {{place.region}}</p>
+                <p>Latitude: {{place.latitude}}</p>
+                <p>Longitude: {{place.longitude}}</p>
+
+        
+           </mat-card-content>
+    <mat-card-content class="map">
+        <google-map  height="400px" 
+        width="750px" 
+        [center]="centerList[i]"
+        [zoom]="zoom"
+        >
+</google-map>
+
+<div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div>
+    </mat-card-content>
+    <div>
+
+        <button (click)="removePlace(i)">Delete  </button>
+    </div>   
+    
+    </mat-card>
+</div>
