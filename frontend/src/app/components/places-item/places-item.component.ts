@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Places } from 'src/app/models/places.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { GoogleMapsService } from 'src/app/services/google-maps.service';
 
 @Component({
   selector: 'app-places-item',
@@ -23,7 +24,8 @@ export class PlacesItemComponent implements OnInit {
     
     constructor(
       private authService: AuthService,
-      private router: Router
+      private router: Router,
+      private googleMapsService: GoogleMapsService
     ) { 
       this.place=new Places(0,0,"","","","","",0,0,"");
       this.placesList=[];
@@ -51,7 +53,7 @@ export class PlacesItemComponent implements OnInit {
         error => {
           console.log(error);
         });
-        this.getLocation();
+        
     }
   
   

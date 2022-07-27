@@ -23,6 +23,7 @@ import { EventFormComponent } from './components/event-form/event-form.component
 import { TrailsFormComponent } from './components/trails-form/trails-form.component';
 import { PlacesFormComponent } from './components/places-form/places-form.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     EventFormComponent,
     TrailsFormComponent,
     PlacesFormComponent,
+    MapComponent,
     
     
  

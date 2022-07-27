@@ -1,1 +1,35 @@
-<p>event-form works!</p>
+<div class="container">
+    <form (ngSubmit)="createEvent()">
+        <mat-card class="card">
+        <form (ngSubmit)="createEvent()" [formGroup]="eventForm">
+            <mat-card-header>
+                <mat-card-title>Event</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="event-container"> 
+                    <div class="event-fields">
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Date</mat-label>
+                            <input type="text" matInput formControlName="date" placeholder="Date">
+                            <mat-error *ngIf="dateInput.hasError('required') && dateInput.touched">
+                              Date is <strong>required</strong>
+                            </mat-error>
+                          </mat-form-field>
+                       
+                          <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Description</mat-label>
+                            <input type="text" matInput formControlName="description" placeholder="Description">
+                            <mat-error *ngIf="descriptionInput.hasError('required') && descriptionInput.touched">
+                              Description is <strong>required</strong>
+                            </mat-error>
+                          </mat-form-field>
+                          <button type="submit" mat-raised-button color="accent" class="full-width" [disabled]="eventForm.invalid">EVENT</button>
+                    </div>
+          
+                </div>
+            </mat-card-content>
+          
+        </form>
+        </mat-card>
+    </form>
+</div>
