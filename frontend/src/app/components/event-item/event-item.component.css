@@ -1,0 +1,28 @@
+
+table{
+    
+    width: 80%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-color: cornflowerblue;
+    padding: 10px;
+}
+
+th{
+
+    background-color: cornflowerblue;
+    color: white;
+    padding: 10px;
+}
+
+
+td{
+    padding: 30px;
+}
+
+.delete{
+    background-color: red;
+    color: white;
+   
+}

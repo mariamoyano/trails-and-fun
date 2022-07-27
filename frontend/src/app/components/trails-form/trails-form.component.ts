@@ -36,15 +36,15 @@ export class TrailsFormComponent implements OnInit {
     this.difficultyOptions = [ 'EASY', 'MODERATE', 'DIFFICULT' ];
     this.regionOptions = [ 'MADRID', 'BARCELONA', 'SEVILLA', 'MALAGA' ];
 
-    this.nameInput = new FormControl('');
-    this.descriptionInput = new FormControl('');
-    this.difficultyInput = new FormControl('');
-    this.lengthInput = new FormControl('');
-    this.addressInput = new FormControl('');
-    this.regionInput = new FormControl('');
-    this.latitudeInput = new FormControl('');
-    this.longitudeInput = new FormControl('');
-    this.imageInput = new FormControl('');
+    this.nameInput = new FormControl('', [Validators.required]);
+    this.descriptionInput = new FormControl('', [Validators.required]);
+    this.difficultyInput = new FormControl('', [Validators.required]);
+    this.lengthInput = new FormControl('', [Validators.required]);
+    this.addressInput = new FormControl('', [Validators.required]);
+    this.regionInput = new FormControl('', [Validators.required]);
+    this.latitudeInput = new FormControl('', [Validators.required]);
+    this.longitudeInput = new FormControl('', [Validators.required]);
+    this.imageInput = new FormControl('', [Validators.required]);
 
     this.trailForm = new FormGroup({
       name: this.nameInput,

@@ -25,6 +25,11 @@ import { PlacesFormComponent } from './components/places-form/places-form.compon
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapComponent } from './components/map/map.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { CommentTrailListComponent } from './components/comment-trail-list/comment-trail-list.component';
+import { CommentTrailItemComponent } from './components/comment-trail-item/comment-trail-item.component';
+import { CommentTrailPageComponent } from './components/comment-trail-page/comment-trail-page.component';
+import { CommentTrailFormComponent } from './components/comment-trail-form/comment-trail-form.component';
+import { TrailsListComponent } from './components/trails-list/trails-list.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +48,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
     TrailsFormComponent,
     PlacesFormComponent,
     MapComponent,
+    CommentTrailListComponent,
+    CommentTrailItemComponent,
+    CommentTrailPageComponent,
+    CommentTrailFormComponent,
+
+    TrailsListComponent,
     
     
  

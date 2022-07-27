@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { Places } from '../models/places.model';
 import { Trail } from '../models/trail.model';
+import { Events } from '../models/events.model';
+import { Comment } from '../models/comment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -103,4 +105,31 @@ deleteTrail(id: number): Observable<Trail> {
   return this.http.delete<Trail>(`${this.API_URL}/trail/delete/${id}`);
 }
 
+getEvents(): Observable<Events[]> {
+  return this.http.get<Events[]>(`${this.API_URL}/events`);
+}
+createEvent(events: Events): Observable<Events> {
+  return this.http.post<Events>(`${this.API_URL}/event/add`, events);
+}
+updateEvent(id: number, events: Events): Observable<Events> {
+  return this.http.put<Events>(`${this.API_URL}/event/edit/${id}`, events);
+}
+deleteEvent(id: number): Observable<Events> {
+  return this.http.delete<Events>(`${this.API_URL}/event/delete/${id}`);
+}
+
+getComments(): Observable<Comment[]> {
+  return this.http.get<Comment[]>(`${this.API_URL}/comments`);
+  
+}
+
+createComment(comment: Comment): Observable<Comment> {
+  return this.http.post<Comment>(`${this.API_URL}/comment/add`, comment);
+}
+updateComment(id: number, comment: Comment): Observable<Comment> {
+  return this.http.put<Comment>(`${this.API_URL}/comment/edit/${id}`, comment);
+}
+deleteComment(id: number): Observable<Comment> {
+  return this.http.delete<Comment>(`${this.API_URL}/comment/delete/${id}`);
+}
 }

@@ -11,29 +11,104 @@
 <div class="container">
     <form (ngSubmit)="createEvent()">
         <mat-card class="card">
-        <form (ngSubmit)="createEvent()" [formGroup]="eventForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="eventForm">
             <mat-card-header>
                 <mat-card-title>Event</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <div class="event-container"> 
                     <div class="event-fields">
+
                         <mat-form-field class="full-width" appearance="fill">
-                            <mat-label>Date</mat-label>
-                            <input type="text" matInput formControlName="date" placeholder="Date">
+                            <mat-label>Event name</mat-label>
+                            <input type="text" matInput formControlName="name" placeholder="Name">
+                            <mat-error *ngIf="nameInput.hasError('required') && nameInput.touched">
+                              Name is <strong>required</strong>
+                            </mat-error>
+                          </mat-form-field>
+
+            
+
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Event address</mat-label>
+                            <input type="text" matInput formControlName="address" placeholder="Address">
+                            <mat-error *ngIf="addressInput.hasError('required') && addressInput.touched">
+                              Address is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- region -->
+
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Event region</mat-label>
+                            <input type="text" matInput formControlName="region" placeholder="Region">
+                            <mat-error *ngIf="regionInput.hasError('required') && regionInput.touched">
+                              Region is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Event date</mat-label>
+                            <input type="date" matInput formControlName="date" placeholder="Date">
                             <mat-error *ngIf="dateInput.hasError('required') && dateInput.touched">
                               Date is <strong>required</strong>
                             </mat-error>
-                          </mat-form-field>
-                       
-                          <mat-form-field class="full-width" appearance="fill">
-                            <mat-label>Description</mat-label>
-                            <input type="text" matInput formControlName="description" placeholder="Description">
+
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Event time</mat-label>
+                            <input type="time" matInput formControlName="time" placeholder="Time">
+                            <mat-error *ngIf="timeInput.hasError('required') && timeInput.touched">
+                              Time is <strong>required</strong>
+                            </mat-error>
+
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Latitude</mat-label>
+                            <input type="text" matInput formControlName="Latitude" placeholder="Location">
+                            <mat-error *ngIf="latitudeInput.touched">
+                              Latitude is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Longitude</mat-label>
+                            <input type="text" matInput formControlName="Longitude" placeholder="Location">
+                            <mat-error *ngIf="longitudeInput.touched">
+                              Longitude is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Event price</mat-label>
+                            <input type="number" matInput formControlName="price" placeholder="Price">
+                            <mat-error *ngIf="priceInput.hasError('required') && priceInput.touched">
+                              Price is <strong>required</strong>
+                            </mat-error>
+                            
+                        </mat-form-field>
+                      
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Event type</mat-label>
+                            <input type="text" matInput formControlName="type" placeholder="Type">
+                            <mat-error *ngIf="typeInput.hasError('required') && typeInput.touched">
+                              Type is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Event description</mat-label>
+                            <textarea matInput formControlName="description" placeholder="Description"></textarea>
                             <mat-error *ngIf="descriptionInput.hasError('required') && descriptionInput.touched">
                               Description is <strong>required</strong>
                             </mat-error>
-                          </mat-form-field>
-                          <button type="submit" mat-raised-button color="accent" class="full-width" [disabled]="eventForm.invalid">EVENT</button>
+                        </mat-form-field>
+
+                    
+                        <button type="submit" mat-raised-button color="accent" class="full-width" [disabled]="eventForm.invalid">EVENT</button>
+                    
+                        
                     </div>
           
                 </div>

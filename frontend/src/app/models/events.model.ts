@@ -1,17 +1,18 @@
-
-import { User } from "./user.model"
-export class Places {
+export class Events{
     constructor(
         private _id: number | null,
         private _userId: number| null,
         private _name: string,
         private _description: string,
-        private _category: string,
         private _address: string,
         private _region: string,
         private _latitude: number,
         private _longitude: number,
-        private _image: string
+        private _date: string,
+        private _time: string,
+        private _price: number,
+        private _type: string
+        
     ) {}
 
     public get id(): number | null {
@@ -27,6 +28,7 @@ export class Places {
     public set userId(value: number | null) {
         this._userId = value;
     }
+
     public get name(): string {
         return this._name;
     }
@@ -38,12 +40,6 @@ export class Places {
     }
     public set description(value: string) {
         this._description = value;
-    }
-    public get category(): string {
-        return this._category;
-    }
-    public set category(value: string) {
-        this._category = value;
     }
     public get address(): string {
         return this._address;
@@ -69,39 +65,34 @@ export class Places {
     public set longitude(value: number) {
         this._longitude = value;
     }
-    public get image(): string {
-        return this._image;
+    public get date(): string {
+        return this._date;
     }
-    public set image(value: string) {
-        this._image = value;
+    public set date(value: string) {
+        this._date = value;
+    }
+    public get time(): string {
+        return this._time;
+    }
+    public set time(value: string) {
+        this._time = value;
+    }
+    public get price(): number {
+        return this._price;
+    }
+    public set price(value: number) {
+        this._price = value;
+    }
+    public get type(): string {
+        return this._type;
+    }
+    public set type(value: string) {
+        this._type = value;
     }
     
-    public toJSON(): object {
-        return {
-            id: this._id,
-            user: this._userId,
-            name: this._name,
-            description: this._description,
-            category: this._category,
-            address: this._address,
-            region: this._region,
-            latitude: this._latitude,
-            longitude: this._longitude,
-            image: this._image
-        };
-    }
+   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 }
+
+

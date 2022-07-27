@@ -1,23 +1,27 @@
 package com.ironhack.eventservice.controller.dto;
 
+import com.ironhack.eventservice.enums.Region;
 import com.ironhack.eventservice.enums.Type;
 
 import javax.persistence.*;
-import javax.swing.plaf.synth.Region;
 
 
 public class EventDTO {
 
 
     private Long id;
+
+    private Long userId;
     private String name;
+
+
     private String description;
     private String address;
     @Enumerated(EnumType.STRING)
     private Region region;
     private double latitude;
     private double longitude;
-    private String image;
+
     private String date;
     private String time;
     private double price;
@@ -28,13 +32,14 @@ public class EventDTO {
     public EventDTO() {
     }
 
-    public EventDTO(String name, String description, String address, double latitude, double longitude, String image, String date, String time, double price, Type type) {
+    public EventDTO(Long userId, String name, String description, String address, Region region, double latitude, double longitude, String date, String time, double price, Type type) {
+        this.userId = userId;
         this.name = name;
         this.description = description;
         this.address = address;
+        this.region = region;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.image = image;
         this.date = date;
         this.time = time;
         this.price = price;
@@ -48,6 +53,15 @@ public class EventDTO {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
 
     public String getName() {
         return name;
@@ -89,13 +103,7 @@ public class EventDTO {
         this.longitude = longitude;
     }
 
-    public String getImage() {
-        return image;
-    }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     public String getDate() {
         return date;

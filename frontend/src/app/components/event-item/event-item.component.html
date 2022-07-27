@@ -1,1 +1,57 @@
-<p>event-item works!</p>
+
+<div class="content"  >
+  
+
+
+    <table mat-table > 
+                    <thead>
+                        <tr>
+                            
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Address</th>
+                            <th>Region</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Price</th>
+                       
+                        </tr>
+                    </thead>
+                    <tbody  *ngFor="let event of eventsList; let i = index">
+                        <tr>
+                            <td>{{event.name}}</td>
+                            <td>{{event.description}}</td>
+                            <td>{{event.type}}</td>
+                            <td>{{event.address}}</td>
+                            <td>{{event.region}}</td>
+                            <td>{{event.latitude}}</td>
+                            <td>{{event.longitude}}</td>
+                            <td>{{event.date}}</td>
+                            <td>{{event.time}}</td>
+                            <td>{{event.price}}</td>
+                            <td><button mat-raised-button class="delete" (click)="deleteEvent(i)">Delete</button></td>
+                            <td><button mat-raised-button color="primary" >Edit</button></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+    
+                
+   
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+

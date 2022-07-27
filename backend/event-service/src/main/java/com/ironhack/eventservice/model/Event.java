@@ -6,37 +6,43 @@ import com.ironhack.eventservice.enums.Type;
 import javax.persistence.*;
 
 
+
 @Entity
 public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private Long userId;
     private String name;
+
+
     private String description;
     private String address;
-
     @Enumerated(EnumType.STRING)
     private Region region;
     private double latitude;
     private double longitude;
-    private String image;
+
     private String date;
     private String time;
     private double price;
+
     @Enumerated(EnumType.STRING)
     private Type type;
 
     public Event() {
     }
 
-    public Event(String name, String description, String address, double latitude, double longitude, String image, String date, String time, double price, Type type) {
+    public Event(Long userId, String name, String description, String address, Region region, double latitude, double longitude, String date, String time, double price, Type type) {
+        this.userId = userId;
         this.name = name;
         this.description = description;
         this.address = address;
+        this.region = region;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.image = image;
         this.date = date;
         this.time = time;
         this.price = price;
@@ -49,6 +55,14 @@ public class Event {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -75,6 +89,14 @@ public class Event {
         this.address = address;
     }
 
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
+    }
+
     public double getLatitude() {
         return latitude;
     }
@@ -89,14 +111,6 @@ public class Event {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public String getDate() {
@@ -129,12 +143,5 @@ public class Event {
 
     public void setType(Type type) {
         this.type = type;
-    }
-
-    public Region getRegion() {
-        return region;
-    }
-    public void setRegion(Region region) {
-        this.region = region;
     }
 }

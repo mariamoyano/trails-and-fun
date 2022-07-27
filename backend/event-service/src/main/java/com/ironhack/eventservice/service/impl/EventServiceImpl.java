@@ -14,12 +14,12 @@ public class EventServiceImpl implements EventService {
 
     public Event updateEvent(Long id, Event event) {
         Event eventToUpdate = eventRepository.findById(id).get();
+        eventToUpdate.setUserId(event.getUserId());
         eventToUpdate.setName(event.getName());
         eventToUpdate.setDescription(event.getDescription());
         eventToUpdate.setAddress(event.getAddress());
         eventToUpdate.setLatitude(event.getLatitude());
         eventToUpdate.setLongitude(event.getLongitude());
-        eventToUpdate.setImage(event.getImage());
         return eventRepository.save(eventToUpdate);
 
     }

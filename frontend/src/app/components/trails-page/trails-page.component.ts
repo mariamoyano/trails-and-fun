@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Trail } from 'src/app/models/trail.model';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-trails-page',
@@ -55,9 +56,12 @@ export class TrailsPageComponent implements OnInit {
     this.authService.deleteTrail(index).subscribe();
   }
 
-  editTrail(trail: Trail): void {
-
-  }
+  editTrail(index:number,trail: Trail): void {
+    this.authService.updateTrail(index,this.trail).subscribe(
+      (trail:Trail) => {
+        this.trailsList[this.trailsList.indexOf(trail)]=trail;
+      }
+    )}
   }
 
 
