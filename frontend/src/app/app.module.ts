@@ -30,7 +30,8 @@ import { CommentTrailItemComponent } from './components/comment-trail-item/comme
 import { CommentTrailPageComponent } from './components/comment-trail-page/comment-trail-page.component';
 import { CommentTrailFormComponent } from './components/comment-trail-form/comment-trail-form.component';
 import { TrailsListComponent } from './components/trails-list/trails-list.component';
-
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,9 @@ import { TrailsListComponent } from './components/trails-list/trails-list.compon
     MatInputModule,
     MatToolbarModule,
     GoogleMapsModule,
-    MatGridListModule
+    MatGridListModule,
+  
+
 
   ],
   providers: [],

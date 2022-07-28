@@ -15,13 +15,23 @@
                 <p>Latitude: {{trail.latitude}}</p>
                 <p>Longitude: {{trail.longitude}}</p>
            </mat-card-content>
+
   <!--  <mat-card-content class="map">
-         <google-map  height="400px" 
+        <google-map  height="400px" 
         width="750px" 
         [center]="centerList[i]"
         [zoom]="zoom"
         >
-</google-map> 
+</google-map>  
+
+  <map-marker
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label"
+    [title]="marker.title"
+    [options]="marker.options"
+  >
+  </map-marker>
 
 <div>Latitude: {{display?.lat}}</div>
 <div>Longitude: {{display?.lng}}</div>
@@ -29,9 +39,10 @@
     <div>
 
         <button (click)="removeTrail(i)">Delete  </button>
+        <a mat-button class="title" [routerLink]="['/comment/{{i}}']">TRAILS&FUN</a>
     </div>   
     
-    </mat-card>
+ </mat-card> 
 </div>
 
 

@@ -14,6 +14,7 @@ import { TrailsFormComponent } from './components/trails-form/trails-form.compon
 import { PlacesFormComponent } from './components/places-form/places-form.component';
 import { EventItemComponent } from './components/event-item/event-item.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
+import { CommentTrailItemComponent } from './components/comment-trail-item/comment-trail-item.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,11 @@ const routes: Routes = [
     path: 'add-event',
     component: EventFormComponent
   },
+  {
+    path: 'comment/:id',
+    component: CommentTrailItemComponent
+  },
+
 ];
 
 @NgModule({
