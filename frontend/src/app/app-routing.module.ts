@@ -15,7 +15,7 @@ import { PlacesFormComponent } from './components/places-form/places-form.compon
 import { EventItemComponent } from './components/event-item/event-item.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
 import { CommentTrailItemComponent } from './components/comment-trail-item/comment-trail-item.component';
-import { EventEditComponent } from './components/event-edit/event-edit.component';
+
 
 const routes: Routes = [
   {
@@ -44,6 +44,10 @@ const routes: Routes = [
     component: TrailsFormComponent
   },
   {
+    path: 'add-trail/:id',
+    component: TrailsFormComponent
+  },
+  {
     path: 'places',
     component: PlacesPageComponent
   },
@@ -57,6 +61,10 @@ const routes: Routes = [
     component: PlacesFormComponent
   },
   {
+    path: 'add-place/:id',
+    component: PlacesFormComponent
+  },
+  {
     path: 'events',
     component: EventsPageComponent
   },
@@ -64,14 +72,14 @@ const routes: Routes = [
     path: 'events/:id',
     component: EventItemComponent
   },
+  {    path: 'add-event',
+  component: EventFormComponent
+},
   {
-    path: 'add-event',
+    path: 'add-event/:id',
     component: EventFormComponent
   },
-  {
-    path: 'event-edit',
-    component: EventEditComponent,
-  },
+
   {
     path: 'comments/',
     component: CommentTrailItemComponent

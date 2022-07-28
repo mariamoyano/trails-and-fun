@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Events } from 'src/app/models/events.model';
 import { AuthService } from 'src/app/services/auth.service';
 /* import { GoogleCalendarService } from 'src/app/services/google-calendar.service'; */
@@ -11,6 +11,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./event-form.component.css']
 })
 export class EventFormComponent implements OnInit {
+
+  events: Events = new Events(0,0,"","","","",0,0,"","",0,"");
+  id:number =  0;;
 
   eventForm: FormGroup;
 
@@ -36,6 +39,7 @@ export class EventFormComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private activatedRoute:ActivatedRoute
   /*   private googleCalendarService: GoogleCalendarService */
   ) { 
 
@@ -76,11 +80,35 @@ export class EventFormComponent implements OnInit {
 
   ngOnInit(): void {
     
+
+
   }
+
+  load(): void {
+    this.activatedRoute.params.subscribe(params => {
+      let id=params['id'];
+      if(id){
+        this.authService.getEventById(id).subscribe(
+          data=>this.events=data
+        );
+      }
+
+    }
+
+  );
+}
+
+
 
   onSubmit() {
     console.log(this.eventForm.value);
-    this.createEvent();
+    if(this.id==0){
+      this.createEvent();
+    }
+    
+    this.update();
+    
+    
   }
 
   createEvent() {
@@ -99,6 +127,33 @@ export class EventFormComponent implements OnInit {
       }
     )
   } */
+
+
+  delete(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.id=params['id'];
+      this.authService.deleteEvent(this.id).subscribe(
+        (response) => {
+          console.log(response);
+        }
+      )
+    });
+  }
+
+    update(){
+      this.authService.updateEvent(this.id,this.eventForm.value).subscribe(
+        (response) => {
+          console.log(response);
+          this.router.navigate(['/events']);
+        });
+        this.delete();
+   
+      }
+
+
+   
+   
+
 
 
 }

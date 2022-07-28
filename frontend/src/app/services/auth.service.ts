@@ -118,6 +118,10 @@ deleteEvent(id: number): Observable<Events> {
   return this.http.delete<Events>(`${this.API_URL}/event/delete/${id}`);
 }
 
+getEventById(id: number): Observable<Events> {
+  return this.http.get<Events>(`${this.API_URL}/event/${id}`);
+}
+
 getComments(): Observable<Comment[]> {
   return this.http.get<Comment[]>(`${this.API_URL}/comments`);
   

@@ -43,10 +43,6 @@ export class EventItemComponent implements OnInit {
       
   }
 
-  onClick(events: Events): void {
-    this.router.navigate(['/event', events.id]);
-  }
-
   deleteEvent(index:number): void {
     this.authService.deleteEvent(index).subscribe(
       data => {
@@ -56,18 +52,9 @@ export class EventItemComponent implements OnInit {
     );
   }
 
-  onClickEdit(events: Events): void {
-    this.router.navigate(['/add-event', events.id]);
-  } 
+ 
 
-  updateEvent(index:number,events: Events): void {
-    this.authService.updateEvent(index,events).subscribe(
-      data => {
-        console.log(data);
-        this.getEvents();
-      }
-    );
-  } 
+
 
 
 

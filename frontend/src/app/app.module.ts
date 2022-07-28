@@ -38,7 +38,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
-import { EventEditComponent } from './components/event-edit/event-edit.component';
 
 
 
@@ -65,7 +64,7 @@ import { EventEditComponent } from './components/event-edit/event-edit.component
     CommentTrailFormComponent,
 
     TrailsListComponent,
-     EventEditComponent,
+ 
     
     
  
