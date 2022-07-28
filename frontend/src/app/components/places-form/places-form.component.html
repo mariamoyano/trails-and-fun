@@ -13,7 +13,7 @@
 <div class="container">
 
     <mat-card class="card">
-    <form ngSubmit="onSubmit()" [formGroup]="placeForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="placeForm">
         <mat-card-header>
             <mat-card-title>Add place:</mat-card-title>
         </mat-card-header>
@@ -30,7 +30,7 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Category</mat-label>
-            <mat-select  matInput formControlName="category" placeholder="Category">
+            <mat-select  formControlName="category" placeholder="Category">
                 <mat-option [value]="category" *ngFor="let category of this.categoryOptions">
                     {{category}}
                 </mat-option>
@@ -50,7 +50,7 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Place region</mat-label>
-            <mat-select matInput formControlName="region" placeholder="Region">
+            <mat-select  formControlName="region" placeholder="Region">
                 <mat-option [value]="region" *ngFor="let region of this.regionOptions">
                     {{region}}
                 </mat-option>
@@ -62,7 +62,7 @@
         </mat-form-field>
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Latitude</mat-label>
-            <input type="text" matInput formControlName="Latitude" placeholder="Latitude">
+            <input type="number" matInput formControlName="latitude" placeholder="Latitude">
             <mat-error *ngIf="latitudeInput.touched">
               Latitude is <strong>required</strong>
             </mat-error>
@@ -70,7 +70,7 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Longitude</mat-label>
-            <input type="text" matInput formControlName="Longitude" placeholder="Longitude">
+            <input type="number" matInput formControlName="longitude" placeholder="Longitude">
             <mat-error *ngIf="longitudeInput.touched">
               Longitude is <strong>required</strong>
             </mat-error>
@@ -78,7 +78,7 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Image Url</mat-label>
-            <input type="text" matInput formControlName="Image" placeholder="Image Url">
+            <input type="text" matInput formControlName="image" placeholder="Image Url">
             <mat-error *ngIf="imageInput.hasError('required') && regionInput.touched">
                 Image url is <strong>required</strong>
             </mat-error>

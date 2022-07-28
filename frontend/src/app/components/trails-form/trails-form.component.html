@@ -11,7 +11,7 @@
 <div class="container">
 
     <mat-card class="card">
-    <form ngSubmit="onSubmit()" [formGroup]="trailForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="trailForm">
         <mat-card-header>
             <mat-card-title>Add place:</mat-card-title>
         </mat-card-header>
@@ -28,7 +28,7 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Lenght</mat-label>
-            <input type="text" matInput formControlName="length" placeholder="Length">
+            <input type="number" matInput formControlName="length" placeholder="Length">
             <mat-error *ngIf="lengthInput.hasError('required') && lengthInput.touched">
                 Length is <strong>required</strong>
             </mat-error>
@@ -36,7 +36,7 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Difficulty</mat-label>
-            <mat-select  matInput formControlName="difficulty" placeholder="Difficulty">
+            <mat-select  formControlName="difficulty" placeholder="Difficulty">
                 <mat-option [value]="difficulty" *ngFor="let difficulty of this.difficultyOptions">
                     {{difficulty}}
                 </mat-option>
@@ -45,10 +45,16 @@
                 Difficulty is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Trail address</mat-label>
+            <input type="text" matInput formControlName="address" placeholder="Address">
+            <mat-error *ngIf="addressInput.hasError('required') && addressInput.touched">
+              Address is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Event region</mat-label>
-            <mat-select matInput formControlName="region" placeholder="Region">
+            <mat-select  formControlName="region" placeholder="Region">
                 <mat-option [value]="region" *ngFor="let region of this.regionOptions">
                     {{region}}
                 </mat-option>
@@ -59,7 +65,7 @@
         </mat-form-field>
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Latitude</mat-label>
-            <input type="text" matInput formControlName="Latitude" placeholder="Location">
+            <input type="number" matInput formControlName="latitude" placeholder="Latitude">
             <mat-error *ngIf="latitudeInput.touched">
               Latitude is <strong>required</strong>
             </mat-error>
@@ -67,7 +73,7 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Longitude</mat-label>
-            <input type="text" matInput formControlName="Longitude" placeholder="Location">
+            <input type="number" matInput formControlName="longitude" placeholder="Latitude">
             <mat-error *ngIf="longitudeInput.touched">
               Longitude is <strong>required</strong>
             </mat-error>
@@ -75,7 +81,7 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Image Url</mat-label>
-            <input type="text" matInput formControlName="Image" placeholder="Image Url">
+            <input type="text" matInput formControlName="image" placeholder="Image Url">
             <mat-error *ngIf="imageInput.hasError('required') && regionInput.touched">
                 Image url is <strong>required</strong>
             </mat-error>
@@ -88,7 +94,7 @@
               Description is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <button type="submit" mat-raised-button color="accent" class="full-width" [disabled]="trailForm.invalid">SUBMIT PLACE</button>
+        <button type="submit" mat-raised-button color="accent" class="full-width" [disabled]="trailForm.invalid">SUBMIT TRAIL</button>
     </div>
           
 </div>

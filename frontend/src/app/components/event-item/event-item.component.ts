@@ -4,6 +4,7 @@ import { Events } from 'src/app/models/events.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 
+
 @Component({
   selector: 'app-event-item',
   templateUrl: './event-item.component.html',
@@ -54,6 +55,19 @@ export class EventItemComponent implements OnInit {
       }
     );
   }
+
+  onClickEdit(events: Events): void {
+    this.router.navigate(['/add-event', events.id]);
+  } 
+
+  updateEvent(index:number,events: Events): void {
+    this.authService.updateEvent(index,events).subscribe(
+      data => {
+        console.log(data);
+        this.getEvents();
+      }
+    );
+  } 
 
 
 

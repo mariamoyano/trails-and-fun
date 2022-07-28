@@ -15,7 +15,8 @@ export class EventFormComponent implements OnInit {
   eventForm: FormGroup;
 
   type: string[];
-
+  regionOptions: string[];
+  
   nameInput: FormControl;
   descriptionInput: FormControl;
   addressInput: FormControl;
@@ -38,6 +39,12 @@ export class EventFormComponent implements OnInit {
   /*   private googleCalendarService: GoogleCalendarService */
   ) { 
 
+    this.regionOptions = [ "ALAVA","ALBACETE","ALICANTE","ALMERIA","ASTURIAS","AVILA",
+    "BADAJOZ","BARCELONA","BURGOS","CACERES","CADIZ","CANTABRIA","CASTELLON","CIUDAD_REAL","CORDOBA","LA_CORUÑA",
+      "CUENCA","GERONA","GRANADA","GUADALAJARA","GUIPUZCUA","HUELVA","HUESCA","ISLAS_BALEARES","JAEN","LEON",
+      "LERIDA","LUGO","MADRID","MALAGA","MELILLA","MURCIA","NAVARRA","OURENSE",
+      "PALENCIA","ISLAS_CANARIAS","PONTEVEDRA","LA_RIOJA","SALAMANCA","SEGOVIA","SEVILLA","SORIA","TARRAGONA",
+      "TERUEL","TOLEDO","VALENCIA","VALLADOLID","VIZCAYA","ZAMORA","ZARAGOZA" ];
     this.type = [ 'TRAIL', 'PLACE' ];
     this.nameInput = new FormControl('', [Validators.required]);
     this.descriptionInput = new FormControl('', [Validators.required]);
@@ -83,8 +90,15 @@ export class EventFormComponent implements OnInit {
         this.router.navigate(['/events']);
       }
     )
-  
-
-
   }
+
+  /* addEventToCalendar() {
+    this.googleCalendarService.addEventToCalendar(this.eventForm.value).subscribe(
+      (response) => {
+        console.log(response);
+      }
+    )
+  } */
+
+
 }

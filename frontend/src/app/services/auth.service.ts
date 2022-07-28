@@ -57,7 +57,7 @@ getPlace(id: number): Observable<Places> {
   return this.http.get<Places>(`${this.API_URL}/places/${id}`);
 }
 createPlace(place: Places): Observable<Places> {
-  return this.http.post<Places>(`${this.API_URL}/places/add`, place);
+  return this.http.post<Places>(`${this.API_URL}/place/add`, place);
 }
 updatePlace(id: number, place: Places): Observable<Places> {
   return this.http.put<Places>(`${this.API_URL}/place/edit${id}`, place);

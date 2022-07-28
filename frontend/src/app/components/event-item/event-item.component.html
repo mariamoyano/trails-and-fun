@@ -33,7 +33,7 @@
                             <td>{{event.time}}</td>
                             <td>{{event.price}}</td>
                             <td><button mat-raised-button class="delete" (click)="deleteEvent(i)">Delete</button></td>
-                            <td><button mat-raised-button color="primary" >Edit</button></td>
+                            <td><button mat-raised-button color="primary" (click)="onClickEdit(event)">Edit</button></td>
                         </tr>
                     </tbody>
 

@@ -14,7 +14,7 @@ export class PlacesFormComponent implements OnInit {
   regionOptions: string[];
 
 
-  placeForm! : FormGroup;
+  placeForm : FormGroup;
   nameInput: FormControl;
   descriptionInput: FormControl;
   categoryInput: FormControl;
@@ -68,17 +68,18 @@ export class PlacesFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Form submitted');
-    const place: Places = this.placeForm.value;
-    console.log(place);
-    this.addPlace(place);
+
+    console.log(this.placeForm.value);
+    this.addPlace();
   }
 
-  addPlace(place:Places): void {
-    
-    this.authService.createPlace(place).subscribe(
-      (place:Places) => {
-        this.placesList.push(place);
+  addPlace(): void {
+    console.log(this.placeForm.value);
+    this.authService.createPlace(this.placeForm.value).subscribe(
+      (response) => {
+        console.log(response);
+        this.router.navigate(['/places']);
+
 
       }
     )

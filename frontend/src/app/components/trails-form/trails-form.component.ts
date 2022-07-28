@@ -13,9 +13,9 @@ export class TrailsFormComponent implements OnInit {
 
   difficultyOptions: string[];
   regionOptions: string[];
+  trailForm : FormGroup;
 
-
-  trailForm! : FormGroup;
+ 
   nameInput: FormControl;
   descriptionInput: FormControl;
   difficultyInput: FormControl;
@@ -45,47 +45,47 @@ export class TrailsFormComponent implements OnInit {
     this.descriptionInput = new FormControl('', [Validators.required]);
     this.difficultyInput = new FormControl('', [Validators.required]);
     this.lengthInput = new FormControl('', [Validators.required]);
-    this.addressInput = new FormControl('', [Validators.required]);
-    this.regionInput = new FormControl('', [Validators.required]);
-    this.latitudeInput = new FormControl('', [Validators.required]);
-    this.longitudeInput = new FormControl('', [Validators.required]);
-    this.imageInput = new FormControl('', [Validators.required]);
+    this.addressInput = new FormControl('');
+    this.regionInput = new FormControl('');
+    this.latitudeInput = new FormControl('');
+    this.longitudeInput = new FormControl('');
+    this.imageInput = new FormControl('');
 
     this.trailForm = new FormGroup({
       name: this.nameInput,
-      description: this.descriptionInput,
-      difficulty: this.difficultyInput,
       length: this.lengthInput,
+      difficulty: this.difficultyInput,
       address: this.addressInput,
       region: this.regionInput,
-      latitude: this.latitudeInput,
       longitude: this.longitudeInput,
-      image: this.imageInput
+      latitude: this.latitudeInput,
+      image: this.imageInput,
+      description: this.descriptionInput
     }, Validators.required);
 
   }
   
 
   ngOnInit(): void {
-
+ 
+    
   
   }
 
   onSubmit(): void {
-    console.log('Form submitted');
-    const trail: Trail = this.trailForm.value;
-    console.log(trail);
-    this.addTrail(trail);
+    console.log(this.trailForm.value);
+    this.createTrail();
+
   }
-
-  addTrail(trail:Trail): void {
-    
-    this.authService.createTrail(trail).subscribe(
-      (trail:Trail) => {
-        this.trailsList.push(trail);
-
+  createTrail(): void {
+    console.log(this.trailForm.value);
+    this.authService.createTrail(this.trailForm.value).subscribe(
+      (response) => {
+        console.log(response);
+        this.router.navigate(['/trails']);
       }
     )
   }
+ 
 
 }
