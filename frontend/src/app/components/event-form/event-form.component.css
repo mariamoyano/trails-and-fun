@@ -3,7 +3,7 @@
     margin-left: 20%;
     margin-right: 20%;
     padding: 20px;
-    /* background-color: #f2f2f2; */
+   /*  background-color: #0672ff32;  */
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -28,7 +28,7 @@
  }
 
 
- .warn{
+/*  .warn{
    background-color: greenyellow;
    color: cornflowerblue;
    margin-left: 1%;
@@ -36,7 +36,7 @@
   .warn:hover{
      background-color: black;
      color: greenyellow;
-   }
+   } */
 
 
    .addbar{

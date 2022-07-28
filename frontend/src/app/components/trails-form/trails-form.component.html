@@ -13,47 +13,88 @@
     <mat-card class="card">
     <form ngSubmit="onSubmit()" [formGroup]="trailForm">
         <mat-card-header>
-            <mat-card-title>Add trail:</mat-card-title>
+            <mat-card-title>Add place:</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-        <div class="form-group">
-            <p class="input-label">Name:</p>
-            <input type="text" class="form-control" id="trailName" formControlName="trailName">
-        </div>
-        <div class="form-group">
-        <p class="input-label">Lenght:</p> 
-                    <input type="text" class="form-control" id="trailLength" formControlName="trailLength">
-        </div>
+            <div class="trail-container"> 
+                <div class="trail-fields">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Place name</mat-label>
+                <input type="text" matInput formControlName="name" placeholder="Name">
+                <mat-error *ngIf="nameInput.hasError('required') && nameInput.touched">
+                  Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
 
-        <div class="form-group">
-            <p class="input-label"> Difficulty:     </p>
-           
-            <input type="text" class="form-control" id="trailDifficulty" formControlName="trailDifficulty">
-        </div>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Lenght</mat-label>
+            <input type="text" matInput formControlName="length" placeholder="Length">
+            <mat-error *ngIf="lengthInput.hasError('required') && lengthInput.touched">
+                Length is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>      
 
-        <div class="form-group">
-            <p class="input-label">ImageUrl:</p>
-            <input type="text" class="form-control" id="trailImage" formControlName="trailImage">
-        </div>
-        <div class="form-group">
-            <p class="input-label">Region:</p>
-            <input type="text" class="form-control" id="trailLocation" formControlName="trailLocation">
-        </div>
-        <div class="form-group">
-            <p class="input-label">Latitude:</p>
-            <input type="text" class="form-control" id="trailLatitude" formControlName="trailLatitude">
-        </div>
-        <div class="form-group">
-            <p class="input-label">Longitude:</p>
-            <input type="text" class="form-control" id="trailLongitude" formControlName="trailLongitude">
-        </div>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Difficulty</mat-label>
+            <mat-select  matInput formControlName="difficulty" placeholder="Difficulty">
+                <mat-option [value]="difficulty" *ngFor="let difficulty of this.difficultyOptions">
+                    {{difficulty}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="difficultyInput.hasError('required') && regionInput.touched">
+                Difficulty is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
 
-        <div class="form-group">
-            <p class="input-label">Description:</p>
-            <input type="text" class="form-control" id="trailDescription" formControlName="trailDescription">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </mat-card-content>
-    </form>
-    </mat-card>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Event region</mat-label>
+            <mat-select matInput formControlName="region" placeholder="Region">
+                <mat-option [value]="region" *ngFor="let region of this.regionOptions">
+                    {{region}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="regionInput.hasError('required') && regionInput.touched">
+              Region is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Latitude</mat-label>
+            <input type="text" matInput formControlName="Latitude" placeholder="Location">
+            <mat-error *ngIf="latitudeInput.touched">
+              Latitude is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Longitude</mat-label>
+            <input type="text" matInput formControlName="Longitude" placeholder="Location">
+            <mat-error *ngIf="longitudeInput.touched">
+              Longitude is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Image Url</mat-label>
+            <input type="text" matInput formControlName="Image" placeholder="Image Url">
+            <mat-error *ngIf="imageInput.hasError('required') && regionInput.touched">
+                Image url is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="Description"></textarea>
+            <mat-error *ngIf="descriptionInput.hasError('required') && descriptionInput.touched">
+              Description is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="accent" class="full-width" [disabled]="trailForm.invalid">SUBMIT PLACE</button>
+    </div>
+          
+</div>
+</mat-card-content>
+
+</form>
+</mat-card>
+
 </div>

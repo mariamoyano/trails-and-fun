@@ -31,17 +31,22 @@ export class PlacesFormComponent implements OnInit {
   constructor(    private authService: AuthService,
     private router: Router) {
 
-    this.categoryOptions = [ ];
-    this.regionOptions = [ ];
+    this.categoryOptions =   ["AQUATIC","CLIMBING", "SNOW", "GAMES", "PICNIC", "CAMPING","MIX","OTHER"];
+    this.regionOptions = [ "ALAVA","ALBACETE","ALICANTE","ALMERIA","ASTURIAS","AVILA",
+    "BADAJOZ","BARCELONA","BURGOS","CACERES","CADIZ","CANTABRIA","CASTELLON","CIUDAD_REAL","CORDOBA","LA_CORUÑA",
+      "CUENCA","GERONA","GRANADA","GUADALAJARA","GUIPUZCUA","HUELVA","HUESCA","ISLAS_BALEARES","JAEN","LEON",
+      "LERIDA","LUGO","MADRID","MALAGA","MELILLA","MURCIA","NAVARRA","OURENSE",
+      "PALENCIA","ISLAS_CANARIAS","PONTEVEDRA","LA_RIOJA","SALAMANCA","SEGOVIA","SEVILLA","SORIA","TARRAGONA",
+      "TERUEL","TOLEDO","VALENCIA","VALLADOLID","VIZCAYA","ZAMORA","ZARAGOZA" ];
 
-    this.nameInput = new FormControl('');
-    this.descriptionInput = new FormControl('');
-    this.categoryInput = new FormControl('');
+    this.nameInput = new FormControl('', [Validators.required]);
+    this.descriptionInput = new FormControl('', [Validators.required]);
+    this.categoryInput = new FormControl('', [Validators.required]);
     this.addressInput = new FormControl('');
-    this.regionInput = new FormControl('');
+    this.regionInput = new FormControl('', [Validators.required]);
     this.latitudeInput = new FormControl('');
     this.longitudeInput = new FormControl('');
-    this.imageInput = new FormControl('');
+    this.imageInput = new FormControl('', [Validators.required]);
 
     this.placeForm = new FormGroup({
       name: this.nameInput,

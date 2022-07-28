@@ -18,44 +18,86 @@
             <mat-card-title>Add place:</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-        <div class="form-group">
-            <p class="input-label">Name:</p>
-            <input type="text" class="form-control" id="placeName" formControlName="placeName">
-        </div>
+            <div class="place-container"> 
+                <div class="place-fields">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Place name</mat-label>
+                <input type="text" matInput formControlName="name" placeholder="Name">
+                <mat-error *ngIf="nameInput.hasError('required') && nameInput.touched">
+                  Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
 
-        <div class="form-group">
-            <p class="input-label"> Category:     </p>
-           
-            <input type="text" class="form-control" id="placeCategory" formControlName="placeCategory">
-        </div>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select  matInput formControlName="category" placeholder="Category">
+                <mat-option [value]="category" *ngFor="let category of this.categoryOptions">
+                    {{category}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="categoryInput.hasError('required') && regionInput.touched">
+                Category is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
 
-        <div class="form-group">
-            <p class="input-label">ImageUrl:</p>
-            <input type="text" class="form-control" id="placeImage" formControlName="placeImage">
-        </div>
-        <div class="form-group">
-            <p class="input-label">Address:</p>
-            <input type="text" class="form-control" id="placeLocation" formControlName="placeAddress">
-        </div>
-        <div class="form-group">
-            <p class="input-label">Region:</p>
-            <input type="text" class="form-control" id="placeLocation" formControlName="placeregion">
-        </div>
-        <div class="form-group">
-            <p class="input-label">Latitude:</p>
-            <input type="text" class="form-control" id="placeLatitude" formControlName="placeLatitude">
-        </div>
-        <div class="form-group">
-            <p class="input-label">Longitude:</p>
-            <input type="text" class="form-control" id="placeLongitude" formControlName="placeLongitude">
-        </div>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Place address</mat-label>
+            <input type="text" matInput formControlName="address" placeholder="Address">
+            <mat-error *ngIf="addressInput.hasError('required') && addressInput.touched">
+              Address is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
 
-        <div class="form-group">
-            <p class="input-label">Description:</p>
-            <input type="text" class="form-control" id="placeDescription" formControlName="placeDescription">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </mat-card-content>
-    </form>
-    </mat-card>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Place region</mat-label>
+            <mat-select matInput formControlName="region" placeholder="Region">
+                <mat-option [value]="region" *ngFor="let region of this.regionOptions">
+                    {{region}}
+                </mat-option>
+
+            </mat-select>
+            <mat-error *ngIf="regionInput.hasError('required') && regionInput.touched">
+              Region is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Latitude</mat-label>
+            <input type="text" matInput formControlName="Latitude" placeholder="Latitude">
+            <mat-error *ngIf="latitudeInput.touched">
+              Latitude is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Longitude</mat-label>
+            <input type="text" matInput formControlName="Longitude" placeholder="Longitude">
+            <mat-error *ngIf="longitudeInput.touched">
+              Longitude is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Image Url</mat-label>
+            <input type="text" matInput formControlName="Image" placeholder="Image Url">
+            <mat-error *ngIf="imageInput.hasError('required') && regionInput.touched">
+                Image url is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="Description"></textarea>
+            <mat-error *ngIf="descriptionInput.hasError('required') && descriptionInput.touched">
+              Description is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="accent" class="full-width" [disabled]="placeForm.invalid">SUBMIT PLACE</button>
+    </div>
+          
+</div>
+</mat-card-content>
+
+</form>
+</mat-card>
+
 </div>
