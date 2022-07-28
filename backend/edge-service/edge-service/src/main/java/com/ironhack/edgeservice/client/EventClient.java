@@ -17,13 +17,13 @@ public interface EventClient {
     EventDTO getEvent(@PathVariable Long id);
 
     @PostMapping("/event/add")
-    EventDTO createEvent(EventDTO event);
+    EventDTO createEvent(@RequestBody EventDTO event);
 
     @DeleteMapping("/event/delete/{id}")
-    void deleteEvent(Long id);
+    void deleteEvent(@PathVariable Long id);
 
-//    @PutMapping("/event/edit/{id}")
-//    EventDTO updateEvent(Long id, EventDTO event);
+    @PutMapping("/event/edit/{id}")
+    EventDTO updateEvent(@PathVariable Long id, @RequestBody EventDTO event);
 
 
 }

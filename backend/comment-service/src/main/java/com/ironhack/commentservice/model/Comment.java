@@ -1,20 +1,29 @@
-package com.ironhack.commentservice.controller.dto;
+package com.ironhack.commentservice.model;
+
+
 
 import com.ironhack.commentservice.controller.enums.Section;
 
-public class TrailCommentDTO {
+import javax.persistence.*;
 
+@Entity
+public class Comment {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String comment;
     private Long userId;
     private Long itemId;
 
+    @Enumerated(EnumType.STRING)
     private Section section;
 
-    public TrailCommentDTO() {
+    public Comment() {
     }
 
-    public TrailCommentDTO(String comment, Long userId, Long itemId, Section section) {
+    public Comment(String comment, Long userId, Long itemId, Section section) {
         this.comment = comment;
         this.userId = userId;
         this.itemId = itemId;

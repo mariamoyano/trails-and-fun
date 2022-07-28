@@ -1,29 +1,23 @@
-package com.ironhack.commentservice.model;
+package com.ironhack.commentservice.controller.dto;
+
 
 import com.ironhack.commentservice.controller.enums.Section;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
-@Entity
-public class TrailComment {
+public class CommentDTO {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String comment;
     private Long userId;
     private Long itemId;
-
+    @Enumerated(EnumType.STRING)
     private Section section;
-
-    public TrailComment() {
+    public CommentDTO() {
     }
 
-    public TrailComment(String comment, Long userId, Long itemId, Section section) {
+    public CommentDTO(String comment, Long userId, Long itemId, Section section) {
         this.comment = comment;
         this.userId = userId;
         this.itemId = itemId;
@@ -60,13 +54,5 @@ public class TrailComment {
 
     public void setItemId(Long itemId) {
         this.itemId = itemId;
-    }
-
-    public Section getSection() {
-        return section;
-    }
-
-    public void setSection(Section section) {
-        this.section = section;
     }
 }

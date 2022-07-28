@@ -1,5 +1,6 @@
 package com.ironhack.eventservice.controller.impl;
 
+import com.ironhack.eventservice.controller.dto.EventDTO;
 import com.ironhack.eventservice.controller.interfaces.EventController;
 import com.ironhack.eventservice.model.Event;
 import com.ironhack.eventservice.repository.EventRepository;
@@ -34,18 +35,19 @@ public class EventControllerImpl implements EventController {
     @PostMapping("/event/add")
     @ResponseStatus(HttpStatus.CREATED)
     public Event createEvent(@RequestBody Event event) {
-        return eventRepository.save(event);
+        return eventService.createEvent(event);
     }
 
-    @DeleteMapping("/event/{id}")
+    @DeleteMapping("/event/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteEvent(@PathVariable(name = "id") Long id) {
         eventRepository.deleteById(id);
     }
     @PutMapping("/event/edit/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Event updateEvent(@PathVariable(name = "id") Long id, @RequestBody Event event) {
-        return eventService.updateEvent(id, event);
+    public Event updateEvent(@PathVariable(name = "id") Long id, @RequestBody EventDTO event) {
+        Event eventUpdated = eventService.updateEvent(id, event);
+        return eventUpdated;
     }
 
 }

@@ -12,12 +12,12 @@ import java.util.Optional;
 public interface TrailRepository extends JpaRepository<Trail, Long> {
 
     List<Trail> findAll();
-
-    Trail save(Trail trails);
-
+    void delete(Trail trail);
     Optional<Trail> findById(Long id);
 
+    Trail save(Trail trail);
 
-    void delete(Trail trail);
+
+
 }
 

@@ -23,12 +23,26 @@ public class TrailServiceImpl implements TrailService {
     }
 
 
-    public void update(Long id, TrailDTO trail) {
+    public Trail updateTrail(Long id, TrailDTO trail) {
         Trail trailUpdated = trailRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Id " + id + " not found."));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trail not found."));
+        trailUpdated.setUserId(trail.getUserId());
+        trailUpdated.setName(trail.getName());
+        trailUpdated.setDescription(trail.getDescription());
+        trailUpdated.setDifficulty(trail.getDifficulty());
+        trailUpdated.setLength(trail.getLength());
+        trailUpdated.setAddress(trail.getAddress());
+        trailUpdated.setRegion(trail.getRegion());
+        trailUpdated.setLatitude(trail.getLatitude());
+        trailUpdated.setLongitude(trail.getLongitude());
+        trailUpdated.setImage(trail.getImage());
 
-        trailRepository.save(trailUpdated);
-
+        return trailRepository.save(trailUpdated);
+    }
+    public Trail findTrailById(Long id) {
+        Trail trail = trailRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trail not found."));
+        return trail;
     }
 
 

@@ -6,11 +6,11 @@ import com.ironhack.trailsservice.model.Trail;
 public interface TrailService {
 
 
-
-
     void delete(Long id);
 
-    void update(Long id, TrailDTO trails);
 
 
+    Trail findTrailById(Long id);
+
+    Trail updateTrail(Long id, TrailDTO trail);
 }

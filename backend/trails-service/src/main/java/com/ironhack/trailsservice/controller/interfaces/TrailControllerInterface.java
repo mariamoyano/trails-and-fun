@@ -8,9 +8,11 @@ import java.util.List;
 public interface TrailControllerInterface {
 
     List<Trail> findAll();
-    Trail create(Trail trail);
-    void update(Long id, TrailDTO trail);
-    void delete(Long id);
+    Trail createTrail(Trail trail);
+
+    Trail findTrailById(Long id);
+    Trail updatePlace(Long id, TrailDTO trail);
+    void deleteTrail(Long id);
 
 
 

@@ -42,6 +42,7 @@ public interface UserController {
 
     List<PlaceDTO> getPlaceByLatitudeAndLongitude(double latitude, double longitude);
 
+
     List<TrailDTO> getTrails();
 
     TrailDTO getTrail(Long id);

@@ -31,7 +31,7 @@ public class TrailControllerImpl implements TrailControllerInterface {
 
     @GetMapping("/trails/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Trail findById(@PathVariable("id") Long id) {
+    public Trail findTrailById(@PathVariable("id") Long id) {
         return trailRepository.findById(id).get();
 
 
@@ -39,22 +39,22 @@ public class TrailControllerImpl implements TrailControllerInterface {
 
     @PostMapping("/trail/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public Trail create(@RequestBody Trail trail) {
+    public Trail createTrail(@RequestBody Trail trail) {
 
         return trailRepository.save(trail);
     }
 
     @PutMapping("/trail/edit/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Long id,@RequestBody @Valid TrailDTO trail) {
-        trailsService.update(id, trail);
+    public Trail updatePlace(@PathVariable("id") Long id,@RequestBody @Valid TrailDTO trail) {
+        Trail trailUpdated = trailsService.updateTrail(id, trail);
+        return trailUpdated;
     }
 
     @DeleteMapping("/trail/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
-        trailsService.delete(id);
-
+    public void deleteTrail(@PathVariable("id") Long id) {
+        trailRepository.deleteById(id);
 
     }
 

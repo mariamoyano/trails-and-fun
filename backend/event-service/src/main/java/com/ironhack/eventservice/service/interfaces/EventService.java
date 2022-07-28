@@ -1,7 +1,10 @@
 package com.ironhack.eventservice.service.interfaces;
 
+import com.ironhack.eventservice.controller.dto.EventDTO;
 import com.ironhack.eventservice.model.Event;
 
 public interface EventService {
-    Event updateEvent(Long id, Event event);
+
+    Event createEvent(Event event);
+    Event updateEvent(Long id, EventDTO event);
 }

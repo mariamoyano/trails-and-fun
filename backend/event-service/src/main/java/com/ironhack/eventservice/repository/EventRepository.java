@@ -1,5 +1,6 @@
 package com.ironhack.eventservice.repository;
 
+import com.ironhack.eventservice.controller.dto.EventDTO;
 import com.ironhack.eventservice.model.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

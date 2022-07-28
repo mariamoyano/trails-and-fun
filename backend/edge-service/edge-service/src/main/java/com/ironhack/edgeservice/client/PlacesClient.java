@@ -17,11 +17,11 @@ public interface PlacesClient {
     @PutMapping("/place/edit/{id}")
     void updatePlace(@PathVariable Long id, @RequestBody PlaceDTO place);
 
-    @DeleteMapping("/place/{id}")
+    @DeleteMapping("/place/delete/{id}")
     void deletePlace(@PathVariable Long id);
 
     @PostMapping("/place/add")
-    PlaceDTO createPlace(PlaceDTO place);
+    PlaceDTO createPlace(@RequestBody PlaceDTO place);
 
     @GetMapping("/places/{id}")
     PlaceDTO getPlace(@PathVariable Long id);
