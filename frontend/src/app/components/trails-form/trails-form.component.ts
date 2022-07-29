@@ -33,7 +33,7 @@ export class TrailsFormComponent implements OnInit {
   constructor(    private authService: AuthService,
     private router: Router) {
 
-    this.difficultyOptions = [ 'EASY', 'MODERATE', 'DIFFICULT' ];
+    this.difficultyOptions = [ 'EASY', 'MODERATE', 'HARD' ];
     this.regionOptions = [ "ALAVA","ALBACETE","ALICANTE","ALMERIA","ASTURIAS","AVILA",
     "BADAJOZ","BARCELONA","BURGOS","CACERES","CADIZ","CANTABRIA","CASTELLON","CIUDAD_REAL","CORDOBA","LA_CORUÑA",
       "CUENCA","GERONA","GRANADA","GUADALAJARA","GUIPUZCUA","HUELVA","HUESCA","ISLAS_BALEARES","JAEN","LEON",

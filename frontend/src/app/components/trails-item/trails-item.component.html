@@ -38,8 +38,8 @@
     </mat-card-content>-->
     <div>
 
-        <button (click)="removeTrail(i)">Delete  </button>
-        <a mat-button class="title" [routerLink]="['/comment/{{i}}']">COMMENTS</a>
+        <button (click)="removeTrail(trail.id!)">Delete  </button>
+        <a mat-button class="title" [routerLink]="['/comments', trail.id]">COMMENTS</a>
     </div>   
     
  </mat-card> 

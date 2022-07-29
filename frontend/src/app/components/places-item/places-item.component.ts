@@ -69,12 +69,13 @@ export class PlacesItemComponent implements OnInit {
   
   
     removePlace(index: number): void {
-      
-      this.placesList.splice(index, 1);
-      this.authService.deletePlace(index).subscribe();
+      this.authService.deletePlace(index).subscribe(
+        data => {
+          console.log(data);
+          this.getAllPlaces();
+        }
+      );
     }
   
-    editTrail(place: Places): void {
-  
-    }
+   
     }

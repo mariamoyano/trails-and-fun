@@ -60,10 +60,10 @@ createPlace(place: Places): Observable<Places> {
   return this.http.post<Places>(`${this.API_URL}/place/add`, place);
 }
 updatePlace(id: number, place: Places): Observable<Places> {
-  return this.http.put<Places>(`${this.API_URL}/place/edit${id}`, place);
+  return this.http.put<Places>(`${this.API_URL}/place/edit/${id}`, place);
 }
 deletePlace(id: number): Observable<Places> {
-  return this.http.delete<Places>(`${this.API_URL}/place/delete${id}`);
+  return this.http.delete<Places>(`${this.API_URL}/place/delete/${id}`);
 }
 getPlacesByUser(userId: number): Observable<Places[]> {
   return this.http.get<Places[]>(`${this.API_URL}/places/user/${userId}`);

@@ -68,12 +68,21 @@ export class TrailsItemComponent implements OnInit {
 
 
   removeTrail(index: number): void {
-    
-    this.trailsList.splice(index, 1);
-    this.authService.deleteTrail(index).subscribe();
+    this.authService.deleteTrail(index).subscribe(
+      data => {
+        console.log(data);
+        this.getAllTrails();
+      }
+    );
   }
 
   editTrail(trail: Trail): void {
 
+    this.authService.updateTrail(this.trailsList.indexOf(trail),this.trail).subscribe(
+      (trail:Trail) => {
+        
+        this.trailsList[this.trailsList.indexOf(trail)]=trail;
+      }
+    )
   }
   }

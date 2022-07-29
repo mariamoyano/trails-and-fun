@@ -15,6 +15,7 @@ import { PlacesFormComponent } from './components/places-form/places-form.compon
 import { EventItemComponent } from './components/event-item/event-item.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
 import { CommentTrailItemComponent } from './components/comment-trail-item/comment-trail-item.component';
+import { ShowUsersComponent } from './components/show-users/show-users.component';
 
 
 const routes: Routes = [
@@ -60,10 +61,10 @@ const routes: Routes = [
     path: 'add-place',
     component: PlacesFormComponent
   },
-  {
+/*   {
     path: 'add-place/:id',
     component: PlacesFormComponent
-  },
+  }, */
   {
     path: 'events',
     component: EventsPageComponent
@@ -84,7 +85,14 @@ const routes: Routes = [
     path: 'comments/',
     component: CommentTrailItemComponent
   },
-
+{
+    path: 'comments/:id',
+    component: CommentTrailItemComponent
+  
+},
+/*   { path: 'users',
+    component: ShowUsersComponent
+  } */
 ];
 
 @NgModule({

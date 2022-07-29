@@ -51,14 +51,17 @@ export class TrailsPageComponent implements OnInit {
 
 
   removeTrail(index: number): void {
-    
-    this.trailsList.splice(index, 1);
-    this.authService.deleteTrail(index).subscribe();
+    this.authService.deleteTrail(index).subscribe(
+      (trail:Trail) => {
+        this.trailsList.splice(this.trailsList.indexOf(trail),1);
+      }
+    )
   }
 
   editTrail(index:number,trail: Trail): void {
     this.authService.updateTrail(index,this.trail).subscribe(
       (trail:Trail) => {
+        
         this.trailsList[this.trailsList.indexOf(trail)]=trail;
       }
     )}
