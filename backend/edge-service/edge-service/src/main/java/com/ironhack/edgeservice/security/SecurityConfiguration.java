@@ -17,12 +17,11 @@ public class SecurityConfiguration {
         http.httpBasic();
         http.csrf().disable();
         http.authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/login").authenticated()
 //                .antMatchers(HttpMethod.DELETE, "/trail/**","/place/**","/event/**").hasRole("ADMIN")
 //                .antMatchers(HttpMethod.POST, "/trail/**","/place/**","/event/**").hasRole("ADMIN")
 //                .antMatchers(HttpMethod.PUT, "/trail/**","/place/**","/event/**").hasRole("ADMIN")
 //                .antMatchers(HttpMethod.GET, "/trail/**","/place/**","/event/**").permitAll()
-//
-
 //                .antMatchers(HttpMethod.GET, "/events","/event/**","/events/**","/trails", "/trail/**","/trails/**",
 //                        "/places","/place/**","/places/**", "/login").authenticated()
 //                .antMatchers(HttpMethod.POST, "/event/add/**","trail/add/**","place/add/**").authenticated()

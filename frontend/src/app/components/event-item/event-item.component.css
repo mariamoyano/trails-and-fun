@@ -26,3 +26,15 @@ td{
     color: white;
    
 }
+
+.map{
+
+    margin-left: 30%;
+    margin-right: 30%;
+    display: block;
+    width: 50%;
+    height: 400px;
+    margin-bottom: 50px;
+    text-align: center;
+    align-items: center;
+}

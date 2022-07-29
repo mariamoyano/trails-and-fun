@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class EventItemComponent implements OnInit {
 
+  
   events: Events;
   eventsList: Events[];
   

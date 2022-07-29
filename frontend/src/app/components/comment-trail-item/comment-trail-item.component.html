@@ -1,0 +1,56 @@
+
+<div class="container">
+       
+    <h1>COMMENTS</h1>
+    <div class="addbar">
+        <a mat-button class="item" color="primary" [routerLink]="['/trails']">BACK</a>
+            
+    </div>
+</div>
+
+
+
+
+<div class="container">
+    
+    <mat-card class="card">
+        <form (ngSubmit)="onSubmit()" [formGroup]="commentForm">
+        <mat-card-header>
+            <mat-card-title>COMMENTS</mat-card-title>
+        </mat-card-header>
+<mat-form-field class="full-width" appearance="fill">
+    <mat-label>Comment</mat-label>
+    <textarea matInput formControlName="comment" placeholder="Comment here"></textarea>
+    <mat-error *ngIf="commentInput.hasError('required') && commentInput.touched">
+        Comment is <strong>required</strong>
+    </mat-error>
+</mat-form-field>
+
+
+<button type="submit" mat-raised-button color="accent" class="full-width" [disabled]="" >COMMENT</button>
+
+
+<p>COMMENTS NOT FOUND!</p>
+
+<div class="content"  >
+  
+
+
+    <table mat-table > 
+                    <thead>
+                        <tr>
+                            
+                            <th>Comment</th>
+                        </tr>
+                            <tbody  *ngFor="let comment of commentList; let i = index">
+                                <tr>
+                                    <td>{{comment.comment}}</td>
+
+                                    <td><button mat-raised-button class="delete" (click)="deleteComment(comment.id!)">Delete</button></td>
+<!--                                     <td><button mat-raised-button color="primary"  [routerLink]="['/add-event', comment.id]">Edit</button></td>
+ -->                                </tr>
+                            </tbody>
+        
+                        </table>
+
+

@@ -40,14 +40,33 @@
                 </table>
     
                 
-   
+ <mat-card-content class="map">
+        <google-map  height="400px" 
+        width="750px" ></google-map>
+    <!-- [center]="centerList[i]"
+        [zoom]="zoom" -->
+        
+
+
+<!--
+  <map-marker
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label"
+    [title]="marker.title"
+    [options]="marker.options"
+  >
+  </map-marker>
+
+<div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div>
+    </mat-card-content>--> 
 
 
 
 
 
-    </div>
-
+  
 
 
 

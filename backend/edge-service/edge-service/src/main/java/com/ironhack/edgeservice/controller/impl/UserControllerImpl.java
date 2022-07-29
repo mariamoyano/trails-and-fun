@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @Slf4j
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin("*")
 public class UserControllerImpl implements UserController {
 
     @Autowired
