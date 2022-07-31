@@ -25,7 +25,7 @@ export class CommentTrailItemComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) { 
-    this.comments=new Comment(0,0,0,"");
+    this.comments=new Comment(0,0,null,"");
     this.commentList=[];
 
     this.commentInput = new FormControl('', [Validators.required]);

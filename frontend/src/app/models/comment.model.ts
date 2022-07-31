@@ -1,10 +1,12 @@
+import { Trail } from "./trail.model";
+
 export class Comment{
 
     constructor(
         private _id: number | null,
         private _userId: number| null,
-        private _trailId: number| null,
-        private _comment: string
+        private _trail: Trail | null,
+        private _text: string
     ){}
 
     public get id(): number | null {
@@ -20,27 +22,27 @@ export class Comment{
     public set userId(value: number | null) {
         this._userId = value;
     }
-    public get trailId(): number | null {
-        return this._trailId;
+    public get trail(): Trail | null {
+        return this._trail;
     }
 
-    public set trailId(value: number | null) {
-        this._trailId = value;
+    public set trail(value: Trail | null) {
+        this._trail = value;
     }
-    public get comment(): string {
-        return this._comment;
+    public get text(): string {
+        return this._text;
     }
 
-    public set comment(value: string) {
-        this._comment = value;
+    public set text(value: string) {
+        this._text = value;
     }
 
     public static fromJson(json: any): Comment {
         return new Comment(
             json.id,
             json.userId,
-            json.trailId,
-            json.comment
+            json.trail,
+            json.text
         );
     }
 }

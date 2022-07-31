@@ -44,7 +44,7 @@
                         </tr>
                             <tbody  *ngFor="let comment of commentList; let i = index">
                                 <tr>
-                                    <td>{{comment.comment}}</td>
+                                    <td>{{comment.text}}</td>
 
                                     <td><button mat-raised-button class="delete" (click)="deleteComment(comment.id!)">Delete</button></td>
 <!--                                     <td><button mat-raised-button color="primary"  [routerLink]="['/add-event', comment.id]">Edit</button></td>

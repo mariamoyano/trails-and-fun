@@ -1,6 +1,6 @@
 package com.ironhack.edgeservice.controller.impl;
 
-import com.ironhack.edgeservice.client.CommentClient;
+
 import com.ironhack.edgeservice.client.EventClient;
 import com.ironhack.edgeservice.client.PlacesClient;
 import com.ironhack.edgeservice.client.TrailsClient;
@@ -39,8 +39,7 @@ public class UserControllerImpl implements UserController {
     @Autowired
     private EventClient eventClient;
 
-    @Autowired
-    private CommentClient commentClient;
+
 
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
@@ -78,42 +77,38 @@ public class UserControllerImpl implements UserController {
 
         return roleDTO;
     }
-/////// COMMENT SERVICE//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////// COMMENTS//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @GetMapping("/comments")
+    @GetMapping("/trail/comments")
     @ResponseStatus(HttpStatus.OK)
     public List<CommentDTO> getComments() {
-        return commentClient.getComments();
+        return trailsClient.getComments();
     }
 
-    @GetMapping("/comments/{id}")
+    @GetMapping("/trail/comments/{id}")
     @ResponseStatus(HttpStatus.OK)
     public List<CommentDTO> getCommentsById(@PathVariable Long id) {
-        return commentClient.getCommentsById(id);
-    }
-    @GetMapping("/comments/{itemId}")
-    @ResponseStatus(HttpStatus.OK)
-    public List<CommentDTO> getCommentsByItemId(@PathVariable Long itemId) {
-        return commentClient.getCommentsByItemId(itemId);
+        return trailsClient.getCommentsById(id);
     }
 
 
-    @PostMapping("/comment/add")
+
+    @PostMapping("/trail/comment/add")
     @ResponseStatus(HttpStatus.CREATED)
     public CommentDTO createComment(@RequestBody CommentDTO comment) {
-        return commentClient.createComment(comment);
+        return trailsClient.createComment(comment);
     }
 
-    @PutMapping("/comment/edit/{id}")
+    @PutMapping("/trail/comment/edit/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateComment(@RequestBody CommentDTO comment) {
-        commentClient.updateComment( comment);
+        trailsClient.updateComment( comment);
     }
 
-    @DeleteMapping("/comment/delete/{id}")
+    @DeleteMapping("/trail/comment/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteComment(@PathVariable Long id) {
-        commentClient.deleteComment(id);
+        trailsClient.deleteComment(id);
     }
 
 

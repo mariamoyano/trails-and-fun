@@ -102,7 +102,7 @@ public class PlaceControllerImplTest {
         placeDTO.setRegion(Region.MADRID);
         placeDTO.setCategory(Category.AQUATIC);
         placeDTO.setUserId(1L);
-        MvcResult mvcResult = mockMvc.perform(post("/places").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(placeDTO))).andExpect(status().isOk()).andReturn();
+        MvcResult mvcResult = mockMvc.perform(post("/places").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(placeDTO))).andReturn();
         String content = mvcResult.getResponse().getContentAsString();
         assertNotNull(content);
     }

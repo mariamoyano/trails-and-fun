@@ -123,17 +123,17 @@ getEventById(id: number): Observable<Events> {
 }
 
 getComments(): Observable<Comment[]> {
-  return this.http.get<Comment[]>(`${this.API_URL}/comments`);
+  return this.http.get<Comment[]>(`${this.API_URL}/trail/comments`);
   
 }
 
 createComment(comment: Comment): Observable<Comment> {
-  return this.http.post<Comment>(`${this.API_URL}/comment/add`, comment);
+  return this.http.post<Comment>(`${this.API_URL}/trail/comment/add`, comment);
 }
 updateComment(id: number, comment: Comment): Observable<Comment> {
-  return this.http.put<Comment>(`${this.API_URL}/comment/edit/${id}`, comment);
+  return this.http.put<Comment>(`${this.API_URL}/trail/comment/edit/${id}`, comment);
 }
 deleteComment(id: number): Observable<Comment> {
-  return this.http.delete<Comment>(`${this.API_URL}/comment/delete/${id}`);
+  return this.http.delete<Comment>(`${this.API_URL}/trail/comment/delete/${id}`);
 }
 }

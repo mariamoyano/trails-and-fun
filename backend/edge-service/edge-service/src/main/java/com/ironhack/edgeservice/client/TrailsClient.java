@@ -25,7 +25,23 @@ public interface TrailsClient {
     @DeleteMapping("/trail/delete/{id}")
     void deleteTrail(@PathVariable Long id);
 
+    @GetMapping("/trail/comments")
+    List<CommentDTO> getComments();
 
+
+    @GetMapping("/trail/comments/{id}")
+    List<CommentDTO> getCommentsById(@PathVariable Long id);
+
+
+
+    @PostMapping("/trail/comment/add")
+    CommentDTO createComment(@RequestBody CommentDTO comment);
+
+    @DeleteMapping("/trail/comment/delete/{id}")
+    void deleteComment(@PathVariable Long id);
+
+    @PutMapping("/trail/comment/edit/{id}")
+    void updateComment(@RequestBody CommentDTO comment);
 
 
 

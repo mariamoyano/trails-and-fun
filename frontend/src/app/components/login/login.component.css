@@ -1,43 +1,62 @@
 .card {
-    margin-top: 10%;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-top: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
     padding: 20px;
-    
-    background-color: rgba(255, 255, 255, 0);
+    opacity: 0.8;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
 }
 
 .full-width {
     width: 100%;
-    
+    margin: 0;
+    padding: 0;
     
 }
 
 .register-text {
-
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 12px;
     text-align: center;
-    
 }
 
 .login-container {
-    position: relative;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+   
+    
+
 }
 
 .login-fields {
-    position: relative;
     margin: auto 0;
-   
-
-
+    width: 60%;
+    background-color: white;
 }
 
+.container{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background-image: url("https://i.pinimg.com/originals/d2/79/a3/d279a30167db83b8320fe06b56137468.jpg");
+    background-size: cover;
+    opacity: 0.8;
+
+} 
+
+h1{
+    text-align: center;
+    font-size: 50px;
+    color: black ;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    opacity: 1;
+}
 
 
 
