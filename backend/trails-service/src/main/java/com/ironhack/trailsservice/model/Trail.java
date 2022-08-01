@@ -35,6 +35,7 @@ public class Trail {
 
     private String image;
 
+
     @OneToMany(mappedBy = "trail", fetch = FetchType.EAGER)
     private List<Comment> comment;
 

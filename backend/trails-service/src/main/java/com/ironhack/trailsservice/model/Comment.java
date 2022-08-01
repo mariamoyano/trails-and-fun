@@ -20,6 +20,7 @@ public class Comment {
     private Long userId;
 
     @ManyToOne
+    @JoinColumn(name = "traiId", referencedColumnName = "id", nullable = false)
     @JsonIgnore
     private Trail trail;
 
@@ -27,8 +28,9 @@ public class Comment {
 
 
 
-    public Comment(Long userId, String text) {
+    public Comment(Long userId, Trail trail, String text) {
         this.userId = userId;
+        this.trail = trail;
         this.text = text;
     }
 

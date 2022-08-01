@@ -3,6 +3,7 @@ package com.ironhack.trailsservice.controller.impl;
 import com.ironhack.trailsservice.controller.dto.CommentDTO;
 import com.ironhack.trailsservice.controller.interfaces.CommentController;
 import com.ironhack.trailsservice.model.Comment;
+import com.ironhack.trailsservice.model.Trail;
 import com.ironhack.trailsservice.repository.CommentRepository;
 import com.ironhack.trailsservice.service.interfaces.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,10 @@ public class CommentControllerImpl implements CommentController {
         public void updateComment(CommentDTO comment) {
             commentService.updateComment(comment);
         }
+
+
+
+
 
 
 
