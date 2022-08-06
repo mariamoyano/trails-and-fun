@@ -1,4 +1,4 @@
-<google-map
+<google-map class="map" 
   
   #myGoogleMap
 
@@ -7,8 +7,8 @@
   [zoom]="zoom"
   [center]="center"
   [options]="options"
-  (mapClick)="eventHandler($event,'mapClick')"
-  (mapDblclick)="eventHandler($event,'mapDblclick')"
+ (mapClick)="eventHandler($event,'mapClick')"
+  (mapDblclick)="eventHandler($event,'mapDblclick')" 
   (mapDrag)="eventHandler($event,'mapDrag')"
   (mapDragend)="eventHandler($event,'mapDragend')"
   (mapRightclick)="eventHandler($event,'mapRightclick')"

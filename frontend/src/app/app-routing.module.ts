@@ -5,16 +5,16 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuardService } from './services/auth-guard.service';
-import { TrailsItemComponent } from './components/trails-item/trails-item.component';
-import { PlacesItemComponent } from './components/places-item/places-item.component';
-import { PlacesPageComponent } from './components/places-page/places-page.component';
-import { TrailsPageComponent } from './components/trails-page/trails-page.component';
-import { EventsPageComponent } from './components/events-page/events-page.component';
-import { TrailsFormComponent } from './components/trails-form/trails-form.component';
-import { PlacesFormComponent } from './components/places-form/places-form.component';
-import { EventItemComponent } from './components/event-item/event-item.component';
-import { EventFormComponent } from './components/event-form/event-form.component';
-import { CommentTrailItemComponent } from './components/comment-trail-item/comment-trail-item.component';
+import { TrailsItemComponent } from './components/trails/trail/trails-item/trails-item.component';
+import { PlacesItemComponent } from './components/places/places-form/places-item/places-item.component';
+import { PlacesPageComponent } from './components/places/places-page/places-page.component';
+import { TrailsPageComponent } from './components/trails/trail/trails-page/trails-page.component';
+import { EventsPageComponent } from './components/events/events-page/events-page.component';
+import { TrailsFormComponent } from './components/trails/trail/trails-form/trails-form.component';
+import { PlacesFormComponent } from './components/places/places-form/places-form.component';
+import { EventItemComponent } from './components/events/event-item/event-item.component';
+import { EventFormComponent } from './components/events/event-form/event-form.component';
+import { CommentTrailItemComponent } from './components/trails/comments/comment-trail-item/comment-trail-item.component';
 import { ShowUsersComponent } from './components/show-users/show-users.component';
 
 

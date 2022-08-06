@@ -11,6 +11,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./event-item.component.css']
 })
 export class EventItemComponent implements OnInit {
+  static getEvents(): Events[] {
+    throw new Error('Method not implemented.');
+  }
 
   
   events: Events;
@@ -51,6 +54,24 @@ export class EventItemComponent implements OnInit {
         this.getEvents();
       }
     );
+  }
+
+  getEventLongitude(): void {
+    this.eventsList.forEach(element => {
+      this.events.longitude = element.longitude;
+    }
+    );
+    
+
+  }
+
+  getEventLatitude(): void {
+    this.eventsList.forEach(element => {
+      this.events.latitude = element.latitude;
+    }
+    );
+    
+
   }
 
  
